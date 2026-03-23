@@ -1,0 +1,311 @@
+# Decision Log
+
+## Purpose
+
+This document records the major project decisions made so far, including why they were made and how they affect the direction of the repository.
+
+The purpose of this log is to preserve project reasoning so that future work remains consistent, even if the project is resumed in a new conversation or after a gap.
+
+---
+
+## Decision 1 — The project should be a serious portfolio piece, not a quick filler project
+
+### Decision
+The project will be developed as a high-effort representative portfolio project rather than a short placeholder exercise.
+
+### Why
+The main goal is to strengthen LinkedIn, CV, GitHub, and interview readiness with something that looks credible enough to support applications for junior or graduate analytical roles.
+
+### Implication
+The repository must look structured, documented, and realistic rather than like a simple classroom exercise or notebook-only submission.
+
+---
+
+## Decision 2 — The project should be positioned for real-world employability
+
+### Decision
+The project should be framed to make the author look ready for practical entry-level analytical work.
+
+### Why
+The desired impression is not just “can analyse data,” but “can contribute in a real reporting environment.”
+
+### Implication
+The project should emphasise:
+
+- clear structure
+- documentation
+- cautious interpretation
+- stakeholder readability
+- reproducible workflow
+- realistic reporting logic
+
+---
+
+## Decision 3 — Government / public-sector alignment is the strongest fit
+
+### Decision
+The project should align most closely with public-sector style work.
+
+### Why
+The target job direction prioritises:
+
+1. government / public sector
+2. banking / finance
+3. large organisations
+
+### Implication
+The project should feel more like:
+
+- reporting support
+- data quality review
+- monitoring workflow
+- stakeholder briefing
+
+and less like:
+
+- experimental machine learning
+- purely academic modelling
+- flashy dashboard-only work
+
+---
+
+## Decision 4 — The project should use a new domain rather than rely on previous personal experience
+
+### Decision
+The project should use a fresh domain rather than directly re-use earlier work areas.
+
+### Why
+The goal was to build broader and more transferable experience rather than simply repeat existing themes.
+
+### Implication
+A public data domain with strong portfolio value was preferred.
+
+---
+
+## Decision 5 — NZ public data is preferred over global data where possible
+
+### Decision
+The project should prioritise New Zealand data if a strong source is available.
+
+### Why
+NZ-relevant work is more useful for local employability and makes the portfolio more directly relevant to target roles.
+
+### Implication
+The chosen source needed to be:
+
+- publicly accessible
+- credible
+- relevant to public-sector style analysis
+- rich enough for documentation-heavy portfolio work
+
+---
+
+## Decision 6 — The selected project domain is NZ road safety using NZTA CAS data
+
+### Decision
+The project domain selected is NZ road safety using NZTA Crash Analysis System (CAS) public data.
+
+### Why
+This option best matched the project goals:
+
+- official New Zealand public source
+- realistic public-sector relevance
+- rich enough for documentation and quality review
+- suitable for structured monitoring work
+- less “student assignment” in appearance than many common public datasets
+
+### Implication
+The project is now anchored around road safety reporting, data reliability, and monitoring readiness.
+
+---
+
+## Decision 7 — The project should be data quality and monitoring focused, not just descriptive analysis
+
+### Decision
+The project should be framed as a **data quality and monitoring review** rather than a simple crash analysis project.
+
+### Why
+This better supports the intended professional impression.
+
+It positions the author as someone who can:
+
+- assess data reliability
+- identify reporting risks
+- separate dependable findings from cautionary ones
+- support decision-making more responsibly
+
+### Implication
+The repository should prioritise:
+
+- validation logic
+- limitations documentation
+- issue logging
+- reporting caution
+- structured stakeholder communication
+
+---
+
+## Decision 8 — GitHub is the main portfolio delivery surface
+
+### Decision
+The project should be built primarily as a GitHub portfolio repository.
+
+### Why
+GitHub supports:
+
+- structured presentation
+- documentation
+- code transparency
+- reproducibility
+- portfolio linking from LinkedIn and CV
+
+### Implication
+The project needed a strong folder structure, multiple supporting documents, and a professional README from the beginning.
+
+---
+
+## Decision 9 — The project should use R as the main analytical tool, with SQL as support
+
+### Decision
+R is the main implementation language, with SQL used as a supporting validation tool where useful.
+
+### Why
+R was explicitly preferred, and SQL adds practical analytical credibility without changing the project’s core direction.
+
+### Implication
+The codebase should be R-led, but structured in a way that still reflects practical analytical work rather than a purely academic script collection.
+
+---
+
+## Decision 10 — Excel should be used as a reporting-support artefact, not as the main analytical engine
+
+### Decision
+Excel remains part of the project, but mainly as a supporting artefact such as an issue register or validation summary.
+
+### Why
+This adds realism and business usability without weakening the technical identity of the project.
+
+### Implication
+Excel should appear in outputs and project packaging, not as the main analytical workflow.
+
+---
+
+## Decision 11 — The initial planned time scope was a recent five-year reporting window
+
+### Decision
+The original intended scope was a recent five-year reporting window.
+
+### Why
+This was chosen to balance relevance, manageability, and a realistic reporting frame.
+
+### Implication
+Documentation and planning were initially written with a recent five-year monitoring focus.
+
+---
+
+## Decision 12 — The practical v1 time structure has shifted toward annual and financial-year analysis
+
+### Decision
+Based on the current extract, version 1 will focus primarily on annual and financial-year reporting rather than monthly reporting.
+
+### Why
+The current extract contains:
+
+- `crashYear`
+- `crashFinancialYear`
+
+but does not appear to include a clearly usable full event date field for monthly or daily analysis.
+
+### Implication
+Version 1 should prioritise:
+
+- annual reporting
+- financial-year comparison
+- geographic comparison
+- severity reporting
+- quality validation
+
+Monthly or quarterly monitoring may be added later only if a usable date field becomes available in a future extract.
+
+---
+
+## Decision 13 — Not all available columns should be used
+
+### Decision
+The project should deliberately use only a controlled subset of fields.
+
+### Why
+Using every field would increase complexity, reduce clarity, and make the project feel less purposeful.
+
+### Implication
+Fields are now grouped into:
+
+- core
+- secondary
+- excluded / low-priority
+
+This supports a cleaner v1 design.
+
+---
+
+## Decision 14 — High-missingness fields should not drive the main reporting layer
+
+### Decision
+Fields with very high missingness should be excluded from the main monitoring layer.
+
+### Why
+A reporting project focused on reliability should not rely heavily on fields that are too incomplete for dependable interpretation.
+
+### Implication
+Fields such as the following are not suitable for core v1 reporting:
+
+- `crashRoadSideRoad`
+- `intersection`
+- `temporarySpeedLimit`
+- `pedestrian`
+- `advisorySpeed`
+
+Some may remain as secondary fields, but not as core reporting drivers.
+
+---
+
+## Decision 15 — The repository should be treated as the source of truth, not the chat history
+
+### Decision
+The repository documentation and Git history should act as the authoritative project record.
+
+### Why
+Conversation history can become long, slow, or fragmented across sessions.
+
+### Implication
+Key project state and decision logic should be written into repository documents so the project can be resumed in a new conversation without losing direction.
+
+---
+
+## Decision 16 — Handoff resilience is required
+
+### Decision
+The project should remain easy to resume in a new chat.
+
+### Why
+Long conversations may become slow, and project work may need to continue later.
+
+### Implication
+The repository now includes dedicated handoff-style documentation such as:
+
+- `docs/project_status.md`
+- `docs/decision_log.md`
+
+These files are intended to preserve continuity.
+
+---
+
+## Current Next Decision Area
+
+The next major decision area is the design of `scripts/02_quality_checks.R`.
+
+This will define:
+
+- the first formal validation rules
+- how quality issues are surfaced
+- which checks become part of the core reporting standard for version 1
