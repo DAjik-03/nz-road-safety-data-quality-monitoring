@@ -2,8 +2,8 @@
 
 ## Primary Source
 
-**Source Name:** NZTA Crash Analysis System (CAS) Open Data  
-**Source Type:** Public New Zealand road safety data  
+**Source Name:** NZTA Crash Analysis System (CAS) data  
+**Source Type:** Public road safety dataset  
 **Owner:** New Zealand Transport Agency (NZTA)  
 **Purpose in this project:** Primary source for data quality review and monitoring metric development
 
@@ -22,11 +22,11 @@ The dataset will be used for:
 ## Download Log
 
 ### Source 1
-- **Source name:** NZTA CAS Open Data
-- **Download date:** [to be filled in]
-- **File name(s):** [to be filled in]
+- **Source name:** Crash Analysis System (CAS) data
+- **Download date:** 2026-03-16
+- **File name(s):** Crash_Analysis_System_(CAS)_data.csv
 - **Storage location:** `data/raw/`
-- **Notes:** Recent periods may require caution due to reporting lag or source update timing.
+- **Notes:** Primary raw source file downloaded for Phase 2 field inventory and data quality review.
 
 ## Secondary Validation Source
 
@@ -35,4 +35,4 @@ The dataset will be used for:
 
 ## Documentation Note
 
-This document will be updated once the exact downloaded files and dates have been confirmed.
+This document will be updated if additional source files, extracts, or validation datasets are added later.
