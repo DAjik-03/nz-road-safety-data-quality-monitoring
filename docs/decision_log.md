@@ -309,3 +309,55 @@ This will define:
 - the first formal validation rules
 - how quality issues are surfaced
 - which checks become part of the core reporting standard for version 1
+
+---
+
+## Decision 17: Implement v1 quality validation as a separate script layer
+
+Date: 24 Mar 2026
+
+Decision:
+A dedicated script, scripts/02_quality_checks.R, was introduced as the first formal validation layer after field inventory. The script runs directly from the raw CAS extract and exports structured CSV outputs to support issue review, summary reporting, and future monitoring logic.
+
+Reason:
+Phase 2 required a move from descriptive field profiling to explicit data quality rules. A separate script keeps profiling and validation responsibilities distinct, improves reproducibility, and creates a clearer foundation for later monitoring outputs.
+
+Scope included in v1:
+- duplicate / uniqueness checks
+- required field completeness checks
+- warning-level completeness checks for selected core fields
+- crash year and financial year validity checks
+- crash year / financial year consistency checks
+- severity sanity checks
+- basic location completeness checks
+- record-level issue flags
+
+Outcome from first execution:
+The first execution completed successfully on the current extract (913,464 rows; 80 columns). Most flagged issues were warning-level completeness gaps. No high-volume duplication or temporal consistency failures were found. The main error-level finding was a small group of non-injury severity records with non-zero injury counts, which will be reviewed before the next phase.
+
+---
+
+## Decision 18: Refine non-injury severity consistency logic after targeted review
+
+Date: 2026-03-24
+
+### Decision
+The original v1 severity rule treated any non-injury crash with one or more injury counts above zero as an error-level issue.
+
+After targeted review of the flagged records, the rule was refined into two separate checks:
+
+- non-injury with fatal or serious injury counts -> error
+- non-injury with minor injury count only -> warning
+
+### Why
+The targeted review showed that the identified severity inconsistencies did not involve fatalCount > 0 or seriousInjuryCount > 0.
+
+The issue pattern was limited to non-injury records with minorInjuryCount above zero only. Treating all such cases as error-level issues overstated the severity of the contradiction.
+
+### Implication
+The v1 quality framework now distinguishes between:
+
+- high-severity logical contradictions that should remain error-level
+- lower-severity classification inconsistencies that should remain visible but not dominate the issue narrative
+
+This makes the validation output more accurate, more defensible, and more suitable for stakeholder-facing monitoring work.

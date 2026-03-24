@@ -180,41 +180,90 @@ Some fields are currently excluded from v1 due to very high missingness or low r
 
 ---
 
+## What Has Been Completed
+
+### Completed Work
+- project direction selected
+- public-sector style reporting positioning confirmed
+- repository structure created
+- Git and GitHub setup completed
+- Phase 1 core documentation drafted
+- primary raw CAS source downloaded
+- source documentation started
+- field inventory script written
+- field inventory executed successfully
+- missingness summary reviewed
+- core / secondary / excluded field direction defined
+- data dictionary updated toward actual extract usage
+- `scripts/02_quality_checks.R` designed and executed successfully
+- first-pass quality issue outputs generated
+- targeted review of severity consistency exceptions completed
+- severity rule refined to separate high-severity contradictions from lower-severity classification inconsistencies
+
+---
+
+## Current Quality Validation Status
+
+### Quality Validation Script
+**Script:** `scripts/02_quality_checks.R`
+
+The first formal quality validation layer has now been implemented and executed successfully against the current CAS extract.
+
+### Quality Validation Outputs
+The script generated structured outputs for:
+- completeness checks
+- duplicate / uniqueness checks
+- validity checks
+- severity consistency checks
+- year / financial-year consistency checks
+- record-level quality flags
+
+### Current Validation Position
+Initial validation results show that most flagged issues are warning-level completeness gaps rather than high-volume structural failures.
+
+The first execution found:
+- no duplicate OBJECTID issues
+- no exact duplicate row issues
+- no crash year validity failures
+- no crash financial year format failures
+- no crash year / financial year alignment failures
+- no fatal-or-serious severity contradictions
+
+A targeted review of the initial severity exceptions showed that the flagged non-injury inconsistencies involved minor injury counts only, not fatal or serious injury counts.
+
+As a result, the severity rule was refined so that:
+- non-injury records with fatal or serious injury counts remain error-level issues
+- non-injury records with minor injury counts only are treated as warning-level review items
+
+---
+
 ## What Still Needs To Be Done
 
 ### Immediate Next Step
-Build the next script in the workflow:
+The next step is to review the small set of remaining error-level exceptions and decide which outputs should be promoted into the stakeholder-facing monitoring layer.
 
-**`scripts/02_quality_checks.R`**
-
-This script should introduce the first structured quality review layer.
-
-### Expected Focus of `02_quality_checks.R`
-The next script is expected to include checks such as:
-
-- duplicate / uniqueness checks
-- required field completeness checks
-- missingness review for core fields
-- value validity checks for key variables
-- severity count sanity checks
-- year and financial-year consistency checks
-- basic location completeness checks
+### Expected Next Focus
+The next stage of work should focus on:
+- reviewing low-volume required-field exceptions
+- defining issue register structure
+- deciding which validation summaries belong in the final reporting layer
+- creating monitoring-ready summary tables
+- drafting stakeholder-facing outputs and final portfolio packaging
 
 ### After That
 Subsequent work is expected to move into:
-
-1. formal data quality outputs
-2. issue register structure
-3. monitoring metric creation
-4. stakeholder-facing summaries
-5. final portfolio polish
+1. issue register packaging
+2. monitoring metric creation
+3. stakeholder-facing summaries
+4. README and documentation polish
+5. final portfolio presentation cleanup
 
 ---
 
 ## Current Project Risks
 
 ### 1. No clear full-date field in the current extract
-This limits immediate monthly / quarterly analysis in version 1.
+This still limits immediate monthly / quarterly analysis in version 1.
 
 ### 2. High missingness in several conceptually useful fields
 Some fields that appear attractive for analysis are too incomplete to support dependable reporting.
@@ -242,7 +291,9 @@ If this project is continued in a new conversation, the next assistant should as
 - GitHub push has already been completed
 - the CAS raw CSV file has already been downloaded
 - `01_field_inventory.R` has already run successfully
-- field inventory outputs already exist
-- the project is now ready to move into `02_quality_checks.R`
+- `02_quality_checks.R` has already been implemented and executed
+- quality validation output tables already exist
+- the current task is no longer to build validation logic from scratch
+- the current task is to review remaining exceptions and move toward monitoring outputs and stakeholder-facing summaries
 
-The next recommended action is to design and implement the first formal data quality checks script based on the core fields documented in `docs/data_dictionary.md`.
+The next recommended action is to review the remaining low-volume exceptions and decide how the validated outputs should feed into the version 1 monitoring layer.
