@@ -76,4 +76,15 @@ The project is being packaged in a GitHub repository with structured documentati
 
 ## Current Status
 
-The project is currently in the setup and documentation phase. The analytical workflow and data review steps will follow after the repository framework and scope have been fully established.
+The project has moved beyond setup and documentation.
+
+The repository now includes a completed field inventory layer, a formal quality validation layer, a targeted severity exception review, and a first monitoring layer that converts validation outputs into stakeholder-facing issue summaries.
+
+### Low-volume exception review
+
+The exception review identified two residual themes.
+
+The first is a very small number of records with incomplete geographic reference fields, including missing TLA and related small-area identifiers. These records are retained in the stakeholder-facing issue register because they are relevant to location-based reporting quality, even though they are not material to national annual or financial-year monitoring.
+
+The second is a single historical record from 2005 with missing injury-count fields. This has been retained as a monitored exception but is not treated as a headline reporting risk.
+
