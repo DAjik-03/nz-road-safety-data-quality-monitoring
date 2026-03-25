@@ -181,7 +181,6 @@ Key supporting documents for the current Phase 3 repository position are listed 
 - `docs/stakeholder_brief.md` — short stakeholder-oriented interpretation summary
 - `docs/project_status.md` — current repository phase, completed work, and next steps
 - `docs/decision_log.md` — major direction choices and reasoning history
-- `docs/stakeholder_issue_register_final.md` — final stakeholder-facing interpretation of residual issues carried forward from the technical validation and exception-review layers
 
 ## Current Validation Position
 
@@ -222,7 +221,6 @@ nz-road-safety-data-quality-monitoring/
 │  ├─ project_charter.md
 │  ├─ executive_summary.md
 │  ├─ stakeholder_brief.md
-│  ├─ stakeholder_issue_register_final.md
 │  ├─ methodology.md
 │  ├─ data_dictionary.md
 │  ├─ assumptions_and_limitations.md
