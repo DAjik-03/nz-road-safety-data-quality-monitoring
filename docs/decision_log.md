@@ -300,18 +300,6 @@ These files are intended to preserve continuity.
 
 ---
 
-## Current Next Decision Area
-
-The next major decision area is the design of `scripts/02_quality_checks.R`.
-
-This will define:
-
-- the first formal validation rules
-- how quality issues are surfaced
-- which checks become part of the core reporting standard for version 1
-
----
-
 ## Decision 17: Implement v1 quality validation as a separate script layer
 
 Date: 24 Mar 2026
@@ -361,3 +349,91 @@ The v1 quality framework now distinguishes between:
 - lower-severity classification inconsistencies that should remain visible but not dominate the issue narrative
 
 This makes the validation output more accurate, more defensible, and more suitable for stakeholder-facing monitoring work.
+
+---
+
+## Decision 19: Promote validation outputs into a separate monitoring layer
+
+Date: 2026-03-25
+
+### Decision
+A separate script, `scripts/03_exception_review_and_monitoring_layer.R`, was added after the validation layer to convert raw validation outputs into monitoring-ready and stakeholder-facing summary outputs.
+
+### Why
+By the end of the 02 layer, the project already had structured issue outputs, but they were still too close to raw validation logs.
+
+A dedicated monitoring layer was needed to:
+
+- organise issue types into a register structure
+- isolate low-volume error issues for targeted review
+- produce annual and financial-year quality summaries
+- generate stakeholder headline metrics
+- shift the project from “quality checks exist” to “quality findings can be monitored and communicated”
+
+### Implication
+The project now has a clearer analytical progression:
+
+- field inventory
+- validation
+- exception review
+- monitoring layer
+- stakeholder packaging
+
+This makes the repository look more like a realistic reporting workflow rather than a set of disconnected scripts.
+
+### Outcome
+The script was executed successfully on the current extract and generated:
+
+- `issue_type_monitoring_summary.csv`
+- `issue_register_v1.csv`
+- `exception_review_register.csv`
+- `exception_review_records.csv`
+- `annual_quality_monitoring_summary.csv`
+- `financial_year_quality_monitoring_summary.csv`
+- `priority_field_completeness_by_year.csv`
+- `priority_field_completeness_by_financial_year.csv`
+- `stakeholder_quality_headlines.csv`
+
+---
+
+## Decision 20: Treat low-volume error issues as review items before final stakeholder packaging
+
+Date: 2026-03-25
+
+### Decision
+Low-volume error-level issues should not automatically dominate the stakeholder-facing narrative.
+
+Instead, they should first be separated into a dedicated exception review register and assessed before final presentation decisions are made.
+
+### Why
+The quality framework is intended to be rigorous without overstating concern.
+
+A small number of error-level issues may still matter, but they should be interpreted in context:
+
+- whether they are geographically concentrated
+- whether they affect reporting materially
+- whether they reflect likely source limitations or genuine defects
+- whether they should remain in the core issue register or be handled as monitored exceptions
+
+### Implication
+The project now distinguishes between:
+
+- core stakeholder-facing issues
+- secondary monitoring items
+- internal watch-list items
+- low-volume exceptions requiring analyst review before final packaging
+
+This supports a more defensible and more public-sector-style reporting approach.
+
+---
+
+## Current Next Decision Area
+
+The next major decision area is no longer validation design.
+
+The next major decision area is stakeholder-facing packaging, specifically:
+
+- which issues remain in the final stakeholder register
+- how caveats should be written
+- how monitoring summaries should be interpreted in plain language
+- whether the final presentation layer should include charts, tables only, or both

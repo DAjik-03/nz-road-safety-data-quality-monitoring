@@ -6,10 +6,11 @@
 
 ## Current Phase
 
-**Phase 2 — Data acquisition, field inventory, and working field definition**
+**Phase 3 — Quality validation complete and monitoring layer implemented**
 
-This project has moved beyond initial setup and documentation.  
-The repository structure is established, core documentation has been drafted, the primary raw dataset has been downloaded, and the first field inventory workflow has been successfully executed.
+This project has moved beyond initial setup, field inventory, and first-pass validation.
+
+The repository now includes a completed validation layer, a targeted severity exception review, and a first monitoring layer that converts raw validation outputs into issue registers, exception review outputs, and annual / financial-year monitoring summaries.
 
 ---
 
@@ -32,11 +33,12 @@ The project is designed to demonstrate the ability to:
 ### Repository
 - Git repository created locally
 - GitHub remote repository created
-- Initial push completed successfully
 - Main branch is active and tracking origin
+- Core folder structure established
+- Analytical workflow now extends from field inventory through monitoring-layer outputs
 
 ### Core Documentation Completed
-The following core documentation files have been created:
+The following core documentation files have been created and are active project references:
 
 - `README.md`
 - `docs/project_charter.md`
@@ -46,6 +48,8 @@ The following core documentation files have been created:
 - `docs/assumptions_and_limitations.md`
 - `docs/executive_summary.md`
 - `docs/data_sources.md`
+- `docs/project_status.md`
+- `docs/decision_log.md`
 
 ### Project Structure Completed
 The repository currently includes working folders for:
@@ -73,60 +77,97 @@ The repository currently includes working folders for:
 - **Rows:** 913,464
 - **Columns:** 72
 
-### Field Inventory Status
-The initial field inventory script has been created and run successfully.
+### Time Structure Available in v1
+The current extract supports:
 
+- `crashYear`
+- `crashFinancialYear`
+
+The extract does not currently provide a clearly usable full event date field for strong monthly or daily monitoring logic in v1.
+
+As a result, version 1 remains focused on:
+
+- annual monitoring
+- financial-year monitoring
+- quality validation and issue logging
+- severity and geographic reporting readiness
+
+---
+
+## Workflow Status by Layer
+
+### 1. Field Inventory Layer — Complete
 **Script:** `scripts/01_field_inventory.R`
 
-### Generated Outputs
-The following outputs were successfully created in `outputs/tables/`:
+This layer was created and run successfully. It established the initial structural profile of the raw CAS extract.
 
-- `field_inventory.csv`
-- `missingness_summary.csv`
-- `date_range_summary.csv`
+**Outputs generated:**
+- `outputs/tables/field_inventory.csv`
+- `outputs/tables/missingness_summary.csv`
+- `outputs/tables/date_range_summary.csv`
+
+### 2. Quality Validation Layer — Complete
+**Script:** `scripts/02_quality_checks.R`
+
+This layer introduced formal validation checks across completeness, validity, consistency, and uniqueness dimensions.
+
+**Outputs generated:**
+- `outputs/tables/quality_issue_summary.csv`
+- `outputs/tables/quality_issues_long.csv`
+- `outputs/tables/record_quality_flags.csv`
+
+### 3. Severity Exception Review — Complete
+**Script:** `scripts/02a_review_severity_conflicts.R`
+
+A targeted review was completed for non-injury severity inconsistencies flagged during the first validation pass.
+
+This review supported refinement of the original severity rule so that:
+
+- non-injury with fatal or serious injury counts remains error-level
+- non-injury with minor injury count only is treated as warning-level
+
+### 4. Exception Review and Monitoring Layer — Complete
+**Script:** `scripts/03_exception_review_and_monitoring_layer.R`
+
+This layer promotes raw validation outputs into monitoring-ready and stakeholder-facing summary structures.
+
+**Outputs generated:**
+- `outputs/tables/monitoring_layer_run_metadata.csv`
+- `outputs/tables/issue_type_monitoring_summary.csv`
+- `outputs/tables/issue_register_v1.csv`
+- `outputs/tables/exception_review_register.csv`
+- `outputs/tables/exception_review_records.csv`
+- `outputs/tables/annual_quality_monitoring_summary.csv`
+- `outputs/tables/financial_year_quality_monitoring_summary.csv`
+- `outputs/tables/priority_field_completeness_by_year.csv`
+- `outputs/tables/priority_field_completeness_by_financial_year.csv`
+- `outputs/tables/stakeholder_quality_headlines.csv`
 
 ---
 
 ## Key Findings So Far
 
-### 1. Field inventory execution was successful
-The project can read the raw CAS extract and generate basic structural summaries.
+### 1. The extract is structurally usable for a reporting-focused portfolio project
+The dataset is large enough and rich enough to support a realistic data quality and monitoring review.
 
-### 2. The current extract appears suitable for a structured reporting-focused project
-The dataset is large enough and rich enough for a strong portfolio project, especially for:
+### 2. Version 1 is best framed around annual and financial-year monitoring
+Because the extract supports year and financial-year fields more clearly than full event-date reporting, the strongest v1 structure remains annual / financial-year based.
 
-- annual reporting
-- financial-year monitoring
-- regional comparison
-- severity-based comparison
-- contextual road environment review
-- data quality assessment
+### 3. The current validation layer did not identify major high-volume structural failures
+Validation and review work established that:
 
-### 3. The current extract does not appear to contain a clear full event date field
-At this stage, the extract appears to support:
+- no duplicate `OBJECTID` issues were found
+- no exact duplicate row issues were found
+- no crash year validity failures were found
+- no crash financial year format failures were found
+- no crash year / financial year alignment failures were found
+- no fatal-or-serious severity contradictions were found
 
-- `crashYear`
-- `crashFinancialYear`
+### 4. Most flagged issues were warning-level completeness gaps
+The issue profile is more consistent with monitoring and caveating needs than with large-scale structural failure.
 
-However, it does **not** appear to include a clearly usable full event date field for direct monthly or daily analysis.
-
-This has shifted the practical analytical focus of version 1 toward:
-
-- annual monitoring
-- financial-year monitoring
-- cross-sectional quality review
-- geographic and severity-based reporting
-
-### 4. Several fields have very high missingness
-The highest-missingness fields identified so far include:
-
-- `crashRoadSideRoad` — 100.00%
-- `intersection` — 100.00%
-- `temporarySpeedLimit` — 98.28%
-- `pedestrian` — 96.69%
-- `advisorySpeed` — 96.05%
-
-These fields are not suitable for the core v1 monitoring layer.
+### 5. A low-volume set of error-level exceptions remains appropriate for targeted review
+The monitoring layer now isolates low-volume error issues into a dedicated exception review register so they can be assessed before final stakeholder-facing packaging.
 
 ---
 
@@ -172,128 +213,73 @@ Some fields are currently excluded from v1 due to very high missingness or low r
 - Phase 1 core documentation drafted
 - primary raw CAS source downloaded
 - source documentation started
-- field inventory script written
-- field inventory executed successfully
+- field inventory script written and executed
 - missingness summary reviewed
 - core / secondary / excluded field direction defined
-- data dictionary updated toward actual extract usage
-
----
-
-## What Has Been Completed
-
-### Completed Work
-- project direction selected
-- public-sector style reporting positioning confirmed
-- repository structure created
-- Git and GitHub setup completed
-- Phase 1 core documentation drafted
-- primary raw CAS source downloaded
-- source documentation started
-- field inventory script written
-- field inventory executed successfully
-- missingness summary reviewed
-- core / secondary / excluded field direction defined
-- data dictionary updated toward actual extract usage
+- data dictionary aligned toward actual extract usage
 - `scripts/02_quality_checks.R` designed and executed successfully
 - first-pass quality issue outputs generated
 - targeted review of severity consistency exceptions completed
-- severity rule refined to separate high-severity contradictions from lower-severity classification inconsistencies
+- severity rule refined after targeted review
+- `scripts/03_exception_review_and_monitoring_layer.R` written and executed successfully
+- v1 issue register created
+- low-volume error exception review register created
+- annual and financial-year monitoring summaries created
+- stakeholder headline metrics created
 
 ---
 
-## Current Quality Validation Status
+## Current Project Position
 
-### Quality Validation Script
-**Script:** `scripts/02_quality_checks.R`
+The project is no longer at the stage of designing validation rules from scratch.
 
-The first formal quality validation layer has now been implemented and executed successfully against the current CAS extract.
+The current project position is:
 
-### Quality Validation Outputs
-The script generated structured outputs for:
-- completeness checks
-- duplicate / uniqueness checks
-- validity checks
-- severity consistency checks
-- year / financial-year consistency checks
-- record-level quality flags
+- validation logic implemented
+- monitoring layer outputs generated
+- remaining work has shifted toward interpretation, packaging, and presentation
 
-### Current Validation Position
-Initial validation results show that most flagged issues are warning-level completeness gaps rather than high-volume structural failures.
-
-The first execution found:
-- no duplicate OBJECTID issues
-- no exact duplicate row issues
-- no crash year validity failures
-- no crash financial year format failures
-- no crash year / financial year alignment failures
-- no fatal-or-serious severity contradictions
-
-A targeted review of the initial severity exceptions showed that the flagged non-injury inconsistencies involved minor injury counts only, not fatal or serious injury counts.
-
-As a result, the severity rule was refined so that:
-- non-injury records with fatal or serious injury counts remain error-level issues
-- non-injury records with minor injury counts only are treated as warning-level review items
+This means the next phase is mainly about deciding how the outputs should be presented and explained to a stakeholder audience.
 
 ---
 
-## What Still Needs To Be Done
+## Immediate Next Steps
 
-### Immediate Next Step
-The next step is to review the small set of remaining error-level exceptions and decide which outputs should be promoted into the stakeholder-facing monitoring layer.
+### Next Working Priorities
+- review the remaining low-volume exception items in the exception review register
+- confirm which issue types should remain in the stakeholder-facing register
+- write stakeholder-facing interpretation for the issue register and monitoring summaries
+- align README and supporting documents with the completed 03 layer
+- polish final portfolio presentation
 
-### Expected Next Focus
-The next stage of work should focus on:
-- reviewing low-volume required-field exceptions
-- defining issue register structure
-- deciding which validation summaries belong in the final reporting layer
-- creating monitoring-ready summary tables
-- drafting stakeholder-facing outputs and final portfolio packaging
-
-### After That
-Subsequent work is expected to move into:
-1. issue register packaging
-2. monitoring metric creation
-3. stakeholder-facing summaries
-4. README and documentation polish
-5. final portfolio presentation cleanup
+### Likely Next Deliverables
+- refined stakeholder-facing issue narrative
+- interpretation notes for annual / financial-year monitoring outputs
+- final documentation cleanup
+- optional charts or reporting-support artefacts for presentation packaging
 
 ---
 
-## Current Project Risks
+## Current Risk / Watch Areas
 
-### 1. No clear full-date field in the current extract
-This still limits immediate monthly / quarterly analysis in version 1.
+The main remaining watch areas are not structural repository problems, but interpretation and packaging decisions:
 
-### 2. High missingness in several conceptually useful fields
-Some fields that appear attractive for analysis are too incomplete to support dependable reporting.
-
-### 3. Scope creep risk
-The project must remain focused on a strong, realistic v1 portfolio deliverable rather than trying to use every available field.
+- how to position warning-level issues in stakeholder communication
+- how much detail to surface from the low-volume exception register
+- how to present data quality caveats without overstating concern
+- how to keep the final repository presentation concise while still looking rigorous
 
 ---
 
-## Current Recommended Direction
+## Resume / Portfolio Value
 
-The current best direction for version 1 is:
+At the current stage, the repository demonstrates:
 
-**Annual and financial-year road safety data quality and monitoring review using NZTA CAS public data**
+- structured analytical workflow design
+- data quality validation logic
+- issue logging and exception review
+- monitoring-oriented output design
+- documentation discipline
+- stakeholder-facing analytical framing
 
-This direction remains well aligned with the original project goal of producing a credible public-sector style portfolio piece.
-
----
-
-## Handoff Note for a New Chat
-
-If this project is continued in a new conversation, the next assistant should assume:
-
-- the repository is already set up
-- GitHub push has already been completed
-- the CAS raw CSV file has already been downloaded
-- `01_field_inventory.R` has already run successfully
-- `02_quality_checks.R` has already been implemented and executed
-- quality validation output tables already exist
-- the current task is no longer to build validation logic from scratch
-- the current task is to review remaining exceptions and move toward monitoring outputs and stakeholder-facing summaries
-
-The next recommended action is to review the remaining low-volume exceptions and decide how the validated outputs should feed into the version 1 monitoring layer.
+This makes the project stronger as a portfolio piece for junior or graduate analyst roles than a simple descriptive dashboard-only project.
