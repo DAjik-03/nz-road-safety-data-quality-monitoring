@@ -1,439 +1,320 @@
 # Decision Log
 
 ## Purpose
+This document records the key analytical and reporting decisions made during the development of the NZ Road Safety Data Quality & Monitoring Review.
 
-This document records the major project decisions made so far, including why they were made and how they affect the direction of the repository.
+It is intended to show:
+- how the project scope was framed
+- why specific analytical choices were made
+- how validation findings were interpreted
+- how the version 1 reporting position was established
 
-The purpose of this log is to preserve project reasoning so that future work remains consistent, even if the project is resumed in a new conversation or after a gap.
-
----
-
-## Decision 1 — The project should be a serious portfolio piece, not a quick filler project
-
-### Decision
-The project will be developed as a high-effort representative portfolio project rather than a short placeholder exercise.
-
-### Why
-The main goal is to strengthen LinkedIn, CV, GitHub, and interview readiness with something that looks credible enough to support applications for junior or graduate analytical roles.
-
-### Implication
-The repository must look structured, documented, and realistic rather than like a simple classroom exercise or notebook-only submission.
+This is a portfolio-oriented decision record rather than a formal enterprise governance register.
 
 ---
 
-## Decision 2 — The project should be positioned for real-world employability
+## Current Decision Position
+The core version 1 decisions are now considered stable.
 
-### Decision
-The project should be framed to make the author look ready for practical entry-level analytical work.
+The project has moved beyond setup and design-phase uncertainty.  
+The main analytical structure is in place, including:
+- field inventory
+- quality validation
+- severity exception review
+- exception review and monitoring layer outputs
 
-### Why
-The desired impression is not just “can analyse data,” but “can contribute in a real reporting environment.”
-
-### Implication
-The project should emphasise:
-
-- clear structure
-- documentation
-- cautious interpretation
-- stakeholder readability
-- reproducible workflow
-- realistic reporting logic
+At this stage, the main role of this document is to explain the reasoning behind the current version 1 position rather than to reopen foundational design choices.
 
 ---
 
-## Decision 3 — Government / public-sector alignment is the strongest fit
+## Decision 1 — Use a public-sector style data quality review rather than a simple dashboard project
 
-### Decision
-The project should align most closely with public-sector style work.
+**Decision**  
+The project was framed as a public-sector style data quality and monitoring review rather than a visualisation-first portfolio project.
 
-### Why
-The target job direction prioritises:
+**Reasoning**  
+The purpose of the portfolio is to demonstrate disciplined analyst practice, including:
+- reviewing source data before interpretation
+- documenting limitations and assumptions
+- distinguishing between data issues and reporting suitability
+- producing stakeholder-safe monitoring outputs
 
-1. government / public sector
-2. banking / finance
-3. large organisations
+**Implication**  
+The repository prioritises validation, exception review, documentation, and reporting readiness over visual presentation alone.
 
-### Implication
-The project should feel more like:
-
-- reporting support
-- data quality review
-- monitoring workflow
-- stakeholder briefing
-
-and less like:
-
-- experimental machine learning
-- purely academic modelling
-- flashy dashboard-only work
+**Status**  
+Confirmed
 
 ---
 
-## Decision 4 — The project should use a new domain rather than rely on previous personal experience
+## Decision 2 — Validate reporting readiness before producing stakeholder-facing interpretation
 
-### Decision
-The project should use a fresh domain rather than directly re-use earlier work areas.
+**Decision**  
+Stakeholder-facing interpretation should follow validation rather than precede it.
 
-### Why
-The goal was to build broader and more transferable experience rather than simply repeat existing themes.
+**Reasoning**  
+Trend summaries and reporting outputs can be misleading if the underlying extract has not first been reviewed for:
+- completeness
+- validity
+- consistency
+- uniqueness
+- material exceptions
 
-### Implication
-A public data domain with strong portfolio value was preferred.
+**Implication**  
+The analytical flow was intentionally structured as:
 
----
+field inventory → quality validation → exception review → monitoring layer → stakeholder-facing interpretation
 
-## Decision 5 — NZ public data is preferred over global data where possible
-
-### Decision
-The project should prioritise New Zealand data if a strong source is available.
-
-### Why
-NZ-relevant work is more useful for local employability and makes the portfolio more directly relevant to target roles.
-
-### Implication
-The chosen source needed to be:
-
-- publicly accessible
-- credible
-- relevant to public-sector style analysis
-- rich enough for documentation-heavy portfolio work
+**Status**  
+Confirmed
 
 ---
 
-## Decision 6 — The selected project domain is NZ road safety using NZTA CAS data
+## Decision 3 — Frame version 1 around annual and financial-year monitoring
 
-### Decision
-The project domain selected is NZ road safety using NZTA Crash Analysis System (CAS) public data.
+**Decision**  
+Version 1 was framed primarily around annual and financial-year monitoring rather than monthly or daily operational reporting.
 
-### Why
-This option best matched the project goals:
-
-- official New Zealand public source
-- realistic public-sector relevance
-- rich enough for documentation and quality review
-- suitable for structured monitoring work
-- less “student assignment” in appearance than many common public datasets
-
-### Implication
-The project is now anchored around road safety reporting, data reliability, and monitoring readiness.
-
----
-
-## Decision 7 — The project should be data quality and monitoring focused, not just descriptive analysis
-
-### Decision
-The project should be framed as a **data quality and monitoring review** rather than a simple crash analysis project.
-
-### Why
-This better supports the intended professional impression.
-
-It positions the author as someone who can:
-
-- assess data reliability
-- identify reporting risks
-- separate dependable findings from cautionary ones
-- support decision-making more responsibly
-
-### Implication
-The repository should prioritise:
-
-- validation logic
-- limitations documentation
-- issue logging
-- reporting caution
-- structured stakeholder communication
-
----
-
-## Decision 8 — GitHub is the main portfolio delivery surface
-
-### Decision
-The project should be built primarily as a GitHub portfolio repository.
-
-### Why
-GitHub supports:
-
-- structured presentation
-- documentation
-- code transparency
-- reproducibility
-- portfolio linking from LinkedIn and CV
-
-### Implication
-The project needed a strong folder structure, multiple supporting documents, and a professional README from the beginning.
-
----
-
-## Decision 9 — The project should use R as the main analytical tool, with SQL as support
-
-### Decision
-R is the main implementation language, with SQL used as a supporting validation tool where useful.
-
-### Why
-R was explicitly preferred, and SQL adds practical analytical credibility without changing the project’s core direction.
-
-### Implication
-The codebase should be R-led, but structured in a way that still reflects practical analytical work rather than a purely academic script collection.
-
----
-
-## Decision 10 — Excel should be used as a reporting-support artefact, not as the main analytical engine
-
-### Decision
-Excel remains part of the project, but mainly as a supporting artefact such as an issue register or validation summary.
-
-### Why
-This adds realism and business usability without weakening the technical identity of the project.
-
-### Implication
-Excel should appear in outputs and project packaging, not as the main analytical workflow.
-
----
-
-## Decision 11 — The initial planned time scope was a recent five-year reporting window
-
-### Decision
-The original intended scope was a recent five-year reporting window.
-
-### Why
-This was chosen to balance relevance, manageability, and a realistic reporting frame.
-
-### Implication
-Documentation and planning were initially written with a recent five-year monitoring focus.
-
----
-
-## Decision 12 — The practical v1 time structure has shifted toward annual and financial-year analysis
-
-### Decision
-Based on the current extract, version 1 will focus primarily on annual and financial-year reporting rather than monthly reporting.
-
-### Why
-The current extract contains:
-
+**Reasoning**  
+The current public extract is more naturally suited to:
 - `crashYear`
 - `crashFinancialYear`
 
-but does not appear to include a clearly usable full event date field for monthly or daily analysis.
+than to a strongly event-date-driven operational reporting design.
 
-### Implication
-Version 1 should prioritise:
+**Implication**  
+Version 1 conclusions are strongest for:
+- annual monitoring
+- financial-year monitoring
+- severity and outcome review
+- reporting-readiness interpretation
 
-- annual reporting
-- financial-year comparison
-- geographic comparison
-- severity reporting
-- quality validation
-
-Monthly or quarterly monitoring may be added later only if a usable date field becomes available in a future extract.
-
----
-
-## Decision 13 — Not all available columns should be used
-
-### Decision
-The project should deliberately use only a controlled subset of fields.
-
-### Why
-Using every field would increase complexity, reduce clarity, and make the project feel less purposeful.
-
-### Implication
-Fields are now grouped into:
-
-- core
-- secondary
-- excluded / low-priority
-
-This supports a cleaner v1 design.
+**Status**  
+Confirmed
 
 ---
 
-## Decision 14 — High-missingness fields should not drive the main reporting layer
+## Decision 4 — Keep the project extract-specific and version 1 bounded
 
-### Decision
-Fields with very high missingness should be excluded from the main monitoring layer.
+**Decision**  
+The project should present conclusions as extract-specific and version 1 appropriate rather than universal claims about all future CAS extracts.
 
-### Why
-A reporting project focused on reliability should not rely heavily on fields that are too incomplete for dependable interpretation.
+**Reasoning**  
+The review is based on the currently assessed public extract and the current workflow implementation.  
+It should not imply ongoing operational sign-off or permanent source-system guarantees.
 
-### Implication
-Fields such as the following are not suitable for core v1 reporting:
+**Implication**  
+Documentation consistently frames conclusions as:
+- version 1 appropriate
+- workflow-specific
+- bounded to the reviewed extract
 
-- `crashRoadSideRoad`
-- `intersection`
-- `temporarySpeedLimit`
-- `pedestrian`
-- `advisorySpeed`
-
-Some may remain as secondary fields, but not as core reporting drivers.
-
----
-
-## Decision 15 — The repository should be treated as the source of truth, not the chat history
-
-### Decision
-The repository documentation and Git history should act as the authoritative project record.
-
-### Why
-Conversation history can become long, slow, or fragmented across sessions.
-
-### Implication
-Key project state and decision logic should be written into repository documents so the project can be resumed in a new conversation without losing direction.
+**Status**  
+Confirmed
 
 ---
 
-## Decision 16 — Handoff resilience is required
+## Decision 5 — Apply a formal quality validation layer before exception interpretation
 
-### Decision
-The project should remain easy to resume in a new chat.
+**Decision**  
+The project should use a formal validation layer covering completeness, validity, consistency, and uniqueness before any monitoring interpretation is made.
 
-### Why
-Long conversations may become slow, and project work may need to continue later.
+**Reasoning**  
+A structured validation layer creates a defensible basis for distinguishing:
+- broad structural concerns
+- isolated anomalies
+- warning-level completeness gaps
+- issues that matter for stakeholder reporting
 
-### Implication
-The repository now includes dedicated handoff-style documentation such as:
+**Implication**  
+`scripts/02_quality_checks.R` became the core validation layer for version 1.
 
+**Status**  
+Confirmed
+
+---
+
+## Decision 6 — Refine severity-conflict interpretation instead of treating all severity conflicts the same
+
+**Decision**  
+Severity-related conflicts should be interpreted with more nuance rather than treated as a single undifferentiated error type.
+
+**Reasoning**  
+Not all apparent severity conflicts carry the same reporting meaning.
+
+The version 1 refinement adopted was:
+- non-injury + fatal/serious counts = error
+- non-injury + minor-only count = warning
+
+**Implication**  
+The project avoids overstating lower-severity inconsistencies while still treating stronger contradictions as material quality concerns.
+
+**Status**  
+Confirmed
+
+---
+
+## Decision 7 — Use materiality-based interpretation rather than raw exception inflation
+
+**Decision**  
+Low-volume exception rows should not automatically be presented as multiple front-facing stakeholder issues.
+
+**Reasoning**  
+Raw exception counts alone can overstate reporting risk.  
+The project should distinguish between:
+- low-volume isolated exceptions
+- warning-level gaps
+- issues with likely stakeholder impact
+- issues that materially affect monitoring suitability
+
+**Implication**  
+Version 1 interpretation is based on materiality, context, and likely reporting effect rather than simply the number of flagged rows.
+
+**Status**  
+Confirmed
+
+---
+
+## Decision 8 — Treat incomplete geographic reference fields as the main residual stakeholder-facing caveat
+
+**Decision**  
+The main residual stakeholder-relevant caveat for version 1 should be incomplete geographic reference fields.
+
+**Reasoning**  
+A very small number of records show incomplete values in fields such as:
+- `tlaId`
+- `tlaName`
+- `areaUnitID`
+- `meshblockId`
+
+This is more relevant to stakeholder-facing reporting than isolated low-volume exceptions because it can affect the precision of detailed geographic outputs.
+
+**Implication**  
+Documentation should consistently state that:
+- national annual monitoring is not materially weakened
+- national financial-year monitoring is not materially weakened
+- detailed geographic reporting requires clearer caveats
+
+**Status**  
+Confirmed
+
+---
+
+## Decision 9 — Retain the 2005 Auckland injury-count anomaly as a monitored exception, not a headline issue
+
+**Decision**  
+The isolated 2005 Auckland record with missing injury counts should remain on file as a monitored exception rather than a major stakeholder-facing concern.
+
+**Reasoning**  
+The issue is:
+- historical
+- isolated
+- low-volume
+
+It does not indicate a broad structural failure across the extract.
+
+**Implication**  
+The issue remains documented, but it is not elevated into a headline statement about overall reporting unsuitability.
+
+**Status**  
+Confirmed
+
+---
+
+## Decision 10 — Build a monitoring layer that converts validation outputs into reporting-ready summary structures
+
+**Decision**  
+The project should include a monitoring layer that elevates raw validation outputs into monitoring-ready and stakeholder-facing summaries.
+
+**Reasoning**  
+Record-level flags alone are not sufficient for reporting interpretation.  
+A stakeholder-facing workflow needs summary structures such as:
+- issue summaries
+- exception registers
+- annual monitoring summaries
+- financial-year monitoring summaries
+- priority completeness summaries
+- stakeholder headline tables
+
+**Implication**  
+`scripts/03_exception_review_and_monitoring_layer.R` was added as a distinct analytical layer rather than leaving the project at raw validation output level.
+
+**Status**  
+Confirmed
+
+---
+
+## Decision 11 — Treat scripts and documentation as the source of truth where outputs are not fully visible in Git
+
+**Decision**  
+If some output tables are not tracked or visible in the repository, the project should still interpret the workflow based on scripts and supporting documentation.
+
+**Reasoning**  
+Some generated outputs may not appear in Git even though the workflow clearly defines and produces them.
+
+**Implication**  
+The project should not treat non-visible outputs as automatically absent when:
+- script logic is present
+- documentation references are present
+- workflow intent is clear
+
+**Status**  
+Confirmed
+
+---
+
+## Decision 12 — Shift the project from analytical build mode to final packaging mode
+
+**Decision**  
+The repository should now be treated as being in final interpretation and presentation polish mode rather than foundational build mode.
+
+**Reasoning**  
+The core version 1 analytical layers are already complete.
+
+Reopening foundational design questions would create unnecessary churn and weaken the clarity of the final portfolio state.
+
+**Implication**  
+Natural next-step work is now concentrated in:
+- README alignment
+- executive summary refinement
+- stakeholder brief wording polish
+- assumptions / limitations cleanup
+- final presentation consistency
+
+**Status**  
+Confirmed
+
+---
+
+## Current Version 1 Position
+Taken together, the decisions above support the following version 1 conclusion:
+
+- no major high-volume structural failures were identified
+- most flagged items are low-volume exceptions or warning-level completeness gaps
+- the main residual stakeholder-facing caveat is incomplete geographic reference coverage in a very small number of records
+- one isolated historical injury-count exception remains as a monitored item
+- overall position: **fit for version 1 monitoring use, with targeted caveats rather than broad reliability concerns**
+
+---
+
+## Decisions Not Being Reopened
+The following are treated as settled for version 1 and are not being reopened as if still under early design discussion:
+- repository structure foundation
+- field inventory design
+- core validation design
+- severity conflict refinement
+- monitoring layer design
+- annual / financial-year framing
+- materiality-based interpretation logic
+
+---
+
+## Final Note
+This decision log should be read together with:
+- `README.md`
 - `docs/project_status.md`
-- `docs/decision_log.md`
+- `docs/executive_summary.md`
+- `docs/stakeholder_brief.md`
+- `docs/assumptions_and_limitations.md`
 
-These files are intended to preserve continuity.
-
----
-
-## Decision 17: Implement v1 quality validation as a separate script layer
-
-Date: 24 Mar 2026
-
-Decision:
-A dedicated script, scripts/02_quality_checks.R, was introduced as the first formal validation layer after field inventory. The script runs directly from the raw CAS extract and exports structured CSV outputs to support issue review, summary reporting, and future monitoring logic.
-
-Reason:
-Phase 2 required a move from descriptive field profiling to explicit data quality rules. A separate script keeps profiling and validation responsibilities distinct, improves reproducibility, and creates a clearer foundation for later monitoring outputs.
-
-Scope included in v1:
-- duplicate / uniqueness checks
-- required field completeness checks
-- warning-level completeness checks for selected core fields
-- crash year and financial year validity checks
-- crash year / financial year consistency checks
-- severity sanity checks
-- basic location completeness checks
-- record-level issue flags
-
-Outcome from first execution:
-The first execution completed successfully on the current extract (913,464 rows; 80 columns). Most flagged issues were warning-level completeness gaps. No high-volume duplication or temporal consistency failures were found. The main error-level finding was a small group of non-injury severity records with non-zero injury counts, which will be reviewed before the next phase.
-
----
-
-## Decision 18: Refine non-injury severity consistency logic after targeted review
-
-Date: 2026-03-24
-
-### Decision
-The original v1 severity rule treated any non-injury crash with one or more injury counts above zero as an error-level issue.
-
-After targeted review of the flagged records, the rule was refined into two separate checks:
-
-- non-injury with fatal or serious injury counts -> error
-- non-injury with minor injury count only -> warning
-
-### Why
-The targeted review showed that the identified severity inconsistencies did not involve fatalCount > 0 or seriousInjuryCount > 0.
-
-The issue pattern was limited to non-injury records with minorInjuryCount above zero only. Treating all such cases as error-level issues overstated the severity of the contradiction.
-
-### Implication
-The v1 quality framework now distinguishes between:
-
-- high-severity logical contradictions that should remain error-level
-- lower-severity classification inconsistencies that should remain visible but not dominate the issue narrative
-
-This makes the validation output more accurate, more defensible, and more suitable for stakeholder-facing monitoring work.
-
----
-
-## Decision 19: Promote validation outputs into a separate monitoring layer
-
-Date: 2026-03-25
-
-### Decision
-A separate script, `scripts/03_exception_review_and_monitoring_layer.R`, was added after the validation layer to convert raw validation outputs into monitoring-ready and stakeholder-facing summary outputs.
-
-### Why
-By the end of the 02 layer, the project already had structured issue outputs, but they were still too close to raw validation logs.
-
-A dedicated monitoring layer was needed to:
-
-- organise issue types into a register structure
-- isolate low-volume error issues for targeted review
-- produce annual and financial-year quality summaries
-- generate stakeholder headline metrics
-- shift the project from “quality checks exist” to “quality findings can be monitored and communicated”
-
-### Implication
-The project now has a clearer analytical progression:
-
-- field inventory
-- validation
-- exception review
-- monitoring layer
-- stakeholder packaging
-
-This makes the repository look more like a realistic reporting workflow rather than a set of disconnected scripts.
-
-### Outcome
-The script was executed successfully on the current extract and generated:
-
-- `issue_type_monitoring_summary.csv`
-- `issue_register_v1.csv`
-- `exception_review_register.csv`
-- `exception_review_records.csv`
-- `annual_quality_monitoring_summary.csv`
-- `financial_year_quality_monitoring_summary.csv`
-- `priority_field_completeness_by_year.csv`
-- `priority_field_completeness_by_financial_year.csv`
-- `stakeholder_quality_headlines.csv`
-
----
-
-## Decision 20: Treat low-volume error issues as review items before final stakeholder packaging
-
-Date: 2026-03-25
-
-### Decision
-Low-volume error-level issues should not automatically dominate the stakeholder-facing narrative.
-
-Instead, they should first be separated into a dedicated exception review register and assessed before final presentation decisions are made.
-
-### Why
-The quality framework is intended to be rigorous without overstating concern.
-
-A small number of error-level issues may still matter, but they should be interpreted in context:
-
-- whether they are geographically concentrated
-- whether they affect reporting materially
-- whether they reflect likely source limitations or genuine defects
-- whether they should remain in the core issue register or be handled as monitored exceptions
-
-### Implication
-The project now distinguishes between:
-
-- core stakeholder-facing issues
-- secondary monitoring items
-- internal watch-list items
-- low-volume exceptions requiring analyst review before final packaging
-
-This supports a more defensible and more public-sector-style reporting approach.
-
----
-
-## Current Next Decision Area
-
-The next major decision area is no longer validation design.
-
-The next major decision area is stakeholder-facing packaging, specifically:
-
-- which issues remain in the final stakeholder register
-- how caveats should be written
-- how monitoring summaries should be interpreted in plain language
-- whether the final presentation layer should include charts, tables only, or both
+Its function is to show that the project’s final position was not accidental or purely descriptive, but the result of documented analytical choices made within a bounded version 1 workflow.

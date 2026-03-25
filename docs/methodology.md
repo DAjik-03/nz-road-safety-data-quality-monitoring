@@ -1,104 +1,320 @@
 # Methodology
 
-## Methodological Approach
+## Purpose of the Methodology
+This document explains the methodological approach used in version 1 of the NZ Road Safety Data Quality & Monitoring Review.
 
-This project follows a public-sector style analytical workflow designed to assess whether publicly available road safety data is suitable for reliable monitoring and reporting.
+The methodology is designed to show how a public-sector style analytical workflow can move from a raw public extract to a more disciplined reporting-readiness position through:
+- structural field review
+- formal quality validation
+- targeted exception review
+- monitoring-oriented summary outputs
+- stakeholder-facing interpretation with documented caveats
 
-The workflow is intentionally structured to prioritise data quality and reporting readiness before interpretation. Rather than moving directly from raw data to charts, the project first evaluates whether the data appears sufficiently complete, consistent, and current to support meaningful reporting.
+This is not a visualisation-first workflow.  
+It is a reporting-readiness and data quality review workflow.
 
-## Analytical Workflow
+---
 
-The methodology is organised into five stages.
+## Methodological Position
+The project uses publicly available New Zealand road safety data from the NZTA Crash Analysis System (CAS).
 
-### 1. Data Ingestion
+The central methodological principle is:
 
-The project begins by loading publicly available NZ road safety data from the NZTA Crash Analysis System (CAS) source into a reproducible analytical workflow.
+**validate before interpreting**
 
-This stage includes:
+This means stakeholder-facing interpretation is not produced until the extract has first been reviewed for:
+- structural coverage
+- missingness
+- validity
+- internal consistency
+- uniqueness
+- material exceptions relevant to reporting use
 
-- loading raw source files
-- reviewing field names and structure
-- checking data types
-- identifying key identifiers and reporting periods
-- defining the working analytical window
+The methodology is therefore designed to answer a practical analyst question:
 
-### 2. Data Cleaning and Standardisation
+**Is this public extract usable for structured monitoring, and if so, under what caveats?**
 
-Once the source files are loaded, the data is prepared for structured review.
+---
 
-This stage includes:
+## Version 1 Analytical Scope
+Version 1 is primarily framed around:
+- annual monitoring
+- financial-year monitoring
+- severity and outcome review
+- geographic data quality review
+- issue logging and monitoring-ready summaries
 
-- standardising date fields
-- aligning categorical values where required
-- checking for formatting irregularities
-- isolating relevant fields for monitoring
-- creating a stable working dataset for analysis
+Version 1 is not primarily designed as a monthly or daily operational reporting framework.
 
-The goal of this stage is not to alter the underlying meaning of the source, but to make the dataset easier to review consistently and reproducibly.
+This reflects the structure of the reviewed extract, which is more naturally aligned to:
+- `crashYear`
+- `crashFinancialYear`
 
-### 3. Data Quality Validation
+than to a strongly event-date-driven operational reporting design.
 
-This is the core of the project.
+---
 
-Before trends are interpreted, the project evaluates whether the dataset appears reliable enough for reporting. The validation framework is structured around six key categories:
+## Source Data Context
+Primary working source:
+- `data/raw/Crash_Analysis_System_(CAS)_data.csv`
 
+Current extract profile:
+- 913,464 rows
+- 72 columns
+
+This project uses a public extract rather than an internal operational reporting environment.
+
+Accordingly, the methodology is designed to assess reporting readiness within the constraints of a public dataset, not to replicate internal production governance.
+
+---
+
+## Workflow Overview
+The version 1 workflow is structured as four linked analytical layers:
+
+1. **Field inventory**
+2. **Quality validation**
+3. **Targeted exception review**
+4. **Monitoring layer and stakeholder-facing interpretation**
+
+This sequence is intentional.  
+It prevents reporting conclusions from being produced before the extract has been structurally reviewed and quality-checked.
+
+---
+
+## Layer 1 — Field Inventory
+
+### Script
+- `scripts/01_field_inventory.R`
+
+### Purpose
+The field inventory layer provides a structured first-pass review of the raw extract.
+
+It is designed to:
+- identify the available fields
+- document field types and coverage
+- summarise missingness
+- review date-related field coverage
+- establish a basic structural understanding of the extract before formal validation begins
+
+### Representative Outputs
+- `outputs/tables/field_inventory.csv`
+- `outputs/tables/missingness_summary.csv`
+- `outputs/tables/date_range_summary.csv`
+
+### Methodological Role
+This layer establishes the baseline structure of the data and supports later decisions about:
+- which fields matter most for reporting
+- which fields should be prioritised in validation
+- which fields may require caution in interpretation
+
+---
+
+## Layer 2 — Quality Validation
+
+### Script
+- `scripts/02_quality_checks.R`
+
+### Purpose
+The quality validation layer applies structured checks across the extract to identify record-level and issue-type quality concerns.
+
+The validation framework is organised around four dimensions:
 - completeness
 - validity
 - consistency
 - uniqueness
-- timeliness
-- change / drift
 
-Example checks may include:
+### Validation Logic
+The purpose of validation is not to inflate issue counts, but to create a disciplined basis for distinguishing:
+- broad structural concerns
+- low-volume anomalies
+- warning-level gaps
+- issues likely to matter for reporting interpretation
 
-- missing values in important fields
-- values outside expected ranges
-- conflicting logic across related fields
-- potential duplicate records
-- unstable recent-period reporting due to lag
-- visible changes in field distributions over time
+### Representative Outputs
+- `outputs/tables/quality_issue_summary.csv`
+- `outputs/tables/quality_issues_long.csv`
+- `outputs/tables/record_quality_flags.csv`
 
-### 4. Monitoring Metric Creation
+### Methodological Role
+This layer creates the formal evidence base for later exception review and stakeholder-facing interpretation.
 
-After the quality review, the project creates monitoring-ready outputs designed for reporting rather than purely exploratory analysis.
+It ensures that conclusions about reporting suitability are grounded in a defined validation process rather than impressionistic review.
 
-This stage includes:
+---
 
-- calculating summary metrics by period
-- comparing crash severity categories
-- reviewing broad location or category patterns
-- identifying trends that appear stable enough to summarise
-- distinguishing stronger findings from cautionary findings
+## Layer 3 — Targeted Severity Exception Review
 
-### 5. Stakeholder-Focused Interpretation
+### Script
+- `scripts/02a_review_severity_conflicts.R`
 
-The final stage translates technical review findings into documentation that a non-technical stakeholder can understand.
+### Purpose
+This layer refines the interpretation of severity-related conflicts identified in the broader validation process.
 
-This includes:
+Rather than treating all severity conflicts as equally material, version 1 adopts a more proportionate interpretation.
 
-- summarising what appears reliable
-- flagging what requires caution
-- documenting assumptions
-- recording limitations
-- presenting findings in a way that avoids overstating certainty
+### Applied Refinement
+The key refinement used in version 1 is:
 
-## Reproducibility Principles
+- non-injury + fatal or serious counts = **error**
+- non-injury + minor-only count = **warning**
 
-This project is designed to be reviewable and as reproducible as practical for a portfolio context.
+### Methodological Role
+This refinement supports a materiality-based approach to exception interpretation.
 
-The repository structure separates:
+It reduces the risk of overstating lower-severity inconsistencies while still preserving stronger contradictions as meaningful quality concerns.
 
-- raw data
-- processed data
-- scripts
-- validation queries
-- outputs
-- documentation
+---
 
-This makes it easier to understand how the project moves from source data to reported outputs.
+## Layer 4 — Exception Review and Monitoring Layer
 
-## Why This Method Was Chosen
+### Script
+- `scripts/03_exception_review_and_monitoring_layer.R`
 
-This methodology was chosen because it better reflects real reporting environments, where analysts need to assess data reliability before drawing conclusions.
+### Purpose
+The monitoring layer converts raw validation outputs into monitoring-ready and stakeholder-facing summary structures.
 
-The project is intended to demonstrate disciplined analytical thinking, documentation quality, and stakeholder awareness, rather than simply producing descriptive charts.
+This layer exists because record-level flags alone are not sufficient for reporting interpretation.  
+A stakeholder-facing workflow requires summary-level outputs that show:
+- which issue types exist
+- how frequently they occur
+- whether they appear material
+- whether they affect annual or financial-year monitoring use
+- which caveats should be elevated in documentation
+
+### Representative Outputs
+- `outputs/tables/monitoring_layer_run_metadata.csv`
+- `outputs/tables/issue_type_monitoring_summary.csv`
+- `outputs/tables/issue_register_v1.csv`
+- `outputs/tables/exception_review_register.csv`
+- `outputs/tables/exception_review_records.csv`
+- `outputs/tables/annual_quality_monitoring_summary.csv`
+- `outputs/tables/financial_year_quality_monitoring_summary.csv`
+- `outputs/tables/priority_field_completeness_by_year.csv`
+- `outputs/tables/priority_field_completeness_by_financial_year.csv`
+- `outputs/tables/stakeholder_quality_headlines.csv`
+
+### Methodological Role
+This layer elevates the project from a raw validation exercise into a monitoring-oriented analytical workflow.
+
+It is the point at which technical validation outputs become usable for:
+- reporting-readiness judgement
+- issue logging
+- stakeholder-safe summary interpretation
+
+---
+
+## Exception Interpretation Approach
+
+### Materiality-Based Interpretation
+A core methodological choice in version 1 is that low-volume exception rows are not automatically treated as broad reporting failure.
+
+Instead, exceptions are interpreted using a materiality-based approach that considers:
+- issue volume
+- issue pattern
+- likely reporting effect
+- whether the issue affects national monitoring or detailed local reporting
+- whether the issue should remain monitored or be elevated as a stakeholder-facing caveat
+
+### Main Residual Caveat
+The main residual stakeholder-relevant caveat in version 1 is incomplete geographic reference coverage in a very small number of records, including fields such as:
+- `tlaId`
+- `tlaName`
+- `areaUnitID`
+- `meshblockId`
+
+This is not expected to materially affect:
+- national annual summaries
+- national financial-year summaries
+- broad monitoring interpretation
+
+However, it becomes more relevant where reporting is used for:
+- TLA-level outputs
+- area-unit interpretation
+- meshblock-linked analysis
+- map-based views
+- tightly scoped local-area summaries
+
+### Isolated Historical Exception
+A separate isolated historical exception remains on file:
+- one 2005 Auckland record with missing `fatalCount`, `seriousInjuryCount`, and `minorInjuryCount`
+
+Because this issue is historical, isolated, and low-volume, it is retained as a monitored exception rather than treated as a headline reporting concern.
+
+---
+
+## Reporting-Readiness Logic
+The methodology does not treat all validation findings as equally important.
+
+Instead, the reporting-readiness position is built by asking:
+- Were any major high-volume structural failures identified?
+- Are the flagged issues concentrated in isolated exceptions or widespread defects?
+- Do the identified issues materially weaken annual or financial-year monitoring?
+- Which issues require clear caveats before stakeholder-facing interpretation?
+
+Using that logic, version 1 supports the following overall position:
+
+**fit for version 1 monitoring use, with targeted caveats rather than broad reliability concerns**
+
+---
+
+## Interpretation Boundary
+This methodology supports conclusions about:
+- reporting readiness
+- monitoring suitability
+- caveat identification
+- stakeholder-facing interpretation boundaries
+
+It does not claim:
+- official NZTA analysis
+- official government reporting
+- operational sign-off on source-system quality
+- production-grade enterprise governance
+- real-time operational monitoring suitability
+
+All conclusions should be read as:
+- extract-specific
+- workflow-specific
+- version 1 bounded
+
+---
+
+## Documentation and Output Interpretation
+Some generated outputs may not be visible in the Git repository at all times.
+
+Where this occurs, the methodology treats the following as the working source of truth:
+1. current repository documentation
+2. completed script structure
+3. defined workflow outputs referenced by the scripts
+
+Non-visible outputs should not automatically be interpreted as absent if the workflow clearly defines and produces them.
+
+---
+
+## Reproducibility Position
+The methodology is designed to be transparent and reproducible at a portfolio-project level.
+
+Reproducibility is supported through:
+- named script layers
+- documented workflow stages
+- clearly defined representative outputs
+- explicit interpretive boundaries
+- documented caveats and assumptions
+
+This is intended to demonstrate disciplined analytical practice rather than a fully automated enterprise production framework.
+
+---
+
+## Version 1 Bottom Line
+The methodology used in this project is designed to show how a public road safety extract can be assessed for structured monitoring use before stakeholder-facing interpretation is produced.
+
+In practical terms, version 1 demonstrates:
+- structured source review before interpretation
+- validation-led reporting readiness assessment
+- materiality-based exception interpretation
+- monitoring-ready summary outputs
+- stakeholder-safe documentation of caveats
+
+The resulting methodological position is that the reviewed extract appears usable for structured monitoring purposes, provided that:
+- low-volume exceptions are interpreted proportionately
+- geographic completeness caveats are disclosed where relevant
+- outputs are not overstated beyond the scope of the reviewed public extract

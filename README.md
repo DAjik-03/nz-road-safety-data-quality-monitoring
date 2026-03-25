@@ -1,163 +1,159 @@
 # NZ Road Safety Data Quality & Monitoring Review
 
-**Author:** Wonjik Kim  
-**Project Type:** Public-sector style data quality and reporting portfolio project  
-**Primary Tooling:** R, SQL, Excel, GitHub  
-**Status:** Phase 3 - Validation and monitoring layer implemented
+A validation-led analytical portfolio project using publicly available NZTA Crash Analysis System (CAS) road safety data.
 
-## Project Overview
+This repository reviews whether a public crash data extract is reliable enough for structured monitoring before stakeholder-facing interpretation is produced.
 
-This project is an end-to-end public-sector style analytics portfolio piece built using New Zealand road safety data from the NZTA Crash Analysis System (CAS) open data source.
+The workflow covers:
+- field inventory
+- quality validation
+- targeted exception review
+- monitoring-ready summary outputs
+- stakeholder-facing interpretation with targeted caveats
 
-The project is designed to demonstrate not only data analysis capability, but also the ability to assess whether a dataset is reliable enough for reporting and decision-making. Rather than focusing on visualisation alone, the repository emphasises data quality validation, reporting reliability, structured documentation, and stakeholder-ready interpretation.
-
-## Business Context
-
-In public-sector and regulated reporting environments, trend outputs are only useful when the underlying data is sufficiently complete, internally consistent, and appropriately caveated.
-
-This project is framed as a road safety data quality and monitoring review for a public-sector style stakeholder audience. It is intended to reflect how an analyst might:
-
-- assess whether incoming data is reliable enough for reporting
-- identify missingness, consistency, and validity issues
-- separate core reporting risks from lower-severity watch items
-- build monitoring-ready summary outputs
-- document limitations before presenting findings to stakeholders
+---
 
 ## Project Objective
 
-The objective of this project is to build a structured, reproducible workflow that:
+The objective of this project is to assess the reporting readiness of a publicly available NZ road safety dataset and document how an analyst might move from raw source data to a more disciplined reporting position.
 
-1. assesses the quality and reliability of NZ road safety data
-2. creates monitoring-ready outputs for annual and financial-year reporting
-3. documents assumptions and limitations clearly
-4. presents findings in a format suitable for non-technical stakeholders
+The project is intended to demonstrate:
+- structured review of source data before interpretation
+- data quality validation using completeness, validity, consistency, and uniqueness checks
+- exception review with materiality-based interpretation
+- monitoring-ready summary outputs for annual and financial-year use
+- stakeholder-safe documentation of limitations and caveats
 
-## Current Project Position
+---
 
-The repository has moved beyond initial setup and field profiling.
+## Current Status
 
-Work completed so far includes:
+**Current phase:** Phase 3 — quality validation complete and monitoring layer implemented
 
-- repository structure and core documentation
-- raw CAS extract acquisition
-- field inventory and missingness review
-- working field definition for version 1
-- formal quality validation checks
-- targeted review of severity consistency exceptions
-- exception review and monitoring layer outputs
+The project has moved beyond setup and initial validation.  
+The repository now reflects a documentation-heavy, reporting-oriented analytical workflow focused on final interpretation, presentation polish, and portfolio packaging.
 
-The current task is no longer to design validation logic from scratch.  
-The project is now focused on stakeholder-facing packaging, issue register interpretation, and final presentation polish.
+Completed analytical layers:
 
-## Data Source
+1. **Field Inventory Layer**
+   - `scripts/01_field_inventory.R`
+   - reviews raw extract structure, missingness, and date coverage
 
-This project uses publicly available road safety data from the **New Zealand Transport Agency (NZTA) Crash Analysis System (CAS)** open data source.
+2. **Quality Validation Layer**
+   - `scripts/02_quality_checks.R`
+   - applies completeness, validity, consistency, and uniqueness checks
 
-**Primary working file:**  
-`data/raw/Crash_Analysis_System_(CAS)_data.csv`
-
-**Current extract profile:**  
-- Rows: 913,464  
-- Columns: 72
-
-## Version 1 Analytical Framing
-
-Version 1 is intentionally focused on:
-
-- annual reporting
-- financial-year monitoring
-- severity and outcome review
-- geographic data quality review
-- issue logging and monitoring-ready summaries
-
-This direction was chosen because the current extract supports `crashYear` and `crashFinancialYear`, but does not currently provide a clearly usable full event date field for strong monthly or daily reporting logic in v1.
-
-## Scope
-
-### In Scope
-- raw data ingestion and structure review
-- field inventory and missingness profiling
-- data quality validation checks
-- issue logging and exception review
-- annual / financial-year monitoring summaries
-- stakeholder-focused interpretation
-- documentation suitable for portfolio review
-
-### Out of Scope
-- causal policy evaluation
-- predictive modelling in version 1
-- production deployment
-- claiming operational policy impact
-- representing the work as official NZTA or government analysis
-
-## Key Questions
-
-This project is designed to answer questions such as:
-
-- Is the data reliable enough to support reporting?
-- Are there obvious completeness, validity, or consistency issues that should be flagged?
-- Which issue types belong in a stakeholder-facing issue register?
-- How should data quality risk be summarised across annual and financial-year views?
-- What would a stakeholder need to know before using this data in reporting or discussion?
-
-## Workflow Summary
-
-The workflow is currently structured in the following layers:
-
-1. **Field Inventory**
-   - load raw source data
-   - inspect fields and structure
-   - review missingness and basic extract profile
-
-2. **Working Field Definition**
-   - identify core, secondary, and excluded fields
-   - align the project with a disciplined v1 reporting scope
-
-3. **Quality Validation**
-   - duplicate / uniqueness checks
-   - required-field completeness checks
-   - warning-level completeness checks
-   - crash year and financial-year validity checks
-   - year / financial-year consistency checks
-   - severity consistency checks
-   - location completeness checks
-   - record-level quality flags
+3. **Severity Exception Review**
+   - `scripts/02a_review_severity_conflicts.R`
+   - refines interpretation of severity-related conflicts
 
 4. **Exception Review and Monitoring Layer**
-   - review low-volume error-level exceptions
-   - create issue-type monitoring summaries
-   - create a v1 issue register
-   - create annual and financial-year monitoring summaries
-   - produce stakeholder headline metrics
+   - `scripts/03_exception_review_and_monitoring_layer.R`
+   - converts validation outputs into monitoring-ready and stakeholder-facing summary tables
 
-5. **Stakeholder Packaging**
-   - finalise issue register interpretation
-   - prepare stakeholder-facing summaries
-   - polish repository presentation and documentation
+---
 
-## Data Quality Framework
+## Current Version 1 Reporting Position
 
-The project assesses data reliability using the following categories:
+The current documented position is:
 
-- **Completeness** - Are required fields populated?
-- **Validity** - Are values within expected ranges and formats?
-- **Consistency** - Do related fields align logically?
-- **Uniqueness** - Are there potential duplicate records?
-- **Monitoring significance** - Should the issue be treated as a core reporting risk, a secondary watch item, or an internal-only observation?
+- no major high-volume structural failures were identified
+- most flagged items are low-volume exceptions or warning-level completeness gaps
+- the main residual caveat is a very small number of incomplete geographic reference records
+- one isolated historical injury-count exception remains on record as a monitored exception
+- overall position: **fit for version 1 monitoring use, with targeted caveats rather than broad reliability concerns**
 
-## Key Outputs Generated So Far
+In practical terms, this means the current extract appears suitable for:
+- annual monitoring
+- financial-year monitoring
+- severity and outcome review
+- stakeholder-facing interpretation with clear caveats
 
-### Field Inventory Layer
+For a concise one-page statement of the final version 1 conclusion, see:
+- `docs/final_reporting_position.md`
+
+---
+
+## Main Caveat
+
+The main residual caveat is a small number of records with incomplete geographic reference fields such as:
+- `tlaId`
+- `tlaName`
+- `areaUnitID`
+- `meshblockId`
+
+This is not expected to materially affect:
+- national annual summaries
+- national financial-year summaries
+- broad monitoring interpretation
+
+However, additional caution is appropriate where reporting becomes more geographically detailed, including:
+- TLA-level reporting
+- area-unit or meshblock-linked analysis
+- map-based outputs
+- tightly scoped local-area summaries
+
+A separate isolated historical exception also remains on record:
+- one 2005 Auckland record with missing `fatalCount`, `seriousInjuryCount`, and `minorInjuryCount`
+
+Because it is isolated and low-volume, it is retained as a monitored exception rather than treated as a broader stakeholder concern.
+
+---
+
+## Current Extract Profile
+
+Primary working file:
+- `data/raw/Crash_Analysis_System_(CAS)_data.csv`
+
+Reviewed extract profile:
+- Rows: 913,464
+- Columns: 72
+
+---
+
+## Repository Structure
+
+```text
+nz-road-safety-data-quality-monitoring/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── scripts/
+│   ├── 01_field_inventory.R
+│   ├── 02_quality_checks.R
+│   ├── 02a_review_severity_conflicts.R
+│   └── 03_exception_review_and_monitoring_layer.R
+│
+├── outputs/
+│   └── tables/
+│       ├── field_inventory.csv
+│       ├── issue_type_monitoring_summary.csv
+│       ├── issue_register_v1.csv
+│       ├── exception_review_register.csv
+│       ├── annual_quality_monitoring_summary.csv
+│       └── stakeholder_quality_headlines.csv
+│
+└── docs/
+    ├── project_status.md
+    ├── decision_log.md
+    ├── executive_summary.md
+    ├── final_reporting_position.md
+    ├── stakeholder_brief.md
+    ├── project_charter.md
+    ├── methodology.md
+    ├── data_dictionary.md
+    ├── assumptions_and_limitations.md
+    └── data_sources.md
+```
+
+---
+
+## Key Monitoring Outputs
+
+The monitoring and documentation layer is designed to produce reporting-ready summary outputs such as:
 - `outputs/tables/field_inventory.csv`
-- `outputs/tables/missingness_summary.csv`
-- `outputs/tables/date_range_summary.csv`
-
-### Quality Validation Layer
-- `outputs/tables/quality_issue_summary.csv`
-- `outputs/tables/quality_issues_long.csv`
-- `outputs/tables/record_quality_flags.csv`
-
-### Monitoring Layer
 - `outputs/tables/issue_type_monitoring_summary.csv`
 - `outputs/tables/issue_register_v1.csv`
 - `outputs/tables/exception_review_register.csv`
@@ -168,63 +164,91 @@ The project assesses data reliability using the following categories:
 - `outputs/tables/priority_field_completeness_by_financial_year.csv`
 - `outputs/tables/stakeholder_quality_headlines.csv`
 
-## Documentation
+For field-level structure and missingness, `outputs/tables/field_inventory.csv` is the source-of-truth inventory output for the reviewed version 1 extract.
 
-Key supporting documents for the current Phase 3 repository position are listed below:
+Note: some output files may not be visible in the repository if they are not tracked in Git.  
+Where this occurs, scripts and documentation should be treated as the source of truth.
 
-- `docs/project_charter.md` — project scope, purpose, and portfolio framing
-- `docs/methodology.md` — validation and monitoring workflow approach
-- `docs/data_dictionary.md` — working field definitions and field usage decisions
-- `docs/assumptions_and_limitations.md` — analytical caveats and version 1 limits
-- `docs/data_sources.md` — source reference and extract context
-- `docs/executive_summary.md` — concise portfolio-level summary of findings
-- `docs/stakeholder_brief.md` — short stakeholder-oriented interpretation summary
-- `docs/project_status.md` — current repository phase, completed work, and next steps
-- `docs/decision_log.md` — major direction choices and reasoning history
+---
 
-## Current Validation Position
+## Analytical Framing
 
-The current validation position is that the extract does not show high-volume structural failures.
+Version 1 is primarily framed around:
+- annual monitoring
+- financial-year monitoring
+- severity and outcome review
+- geographic data quality review
+- issue logging and monitoring-oriented summaries
 
-Early validation and review work established that:
+It is not primarily framed as a monthly or daily operational reporting workflow.
 
-- no duplicate `OBJECTID` issues were found
-- no exact duplicate row issues were found
-- no crash year validity failures were found
-- no crash financial year format failures were found
-- no crash year / financial year alignment failures were found
-- no fatal-or-serious severity contradictions were found
+This reflects the structure of the reviewed extract, which is more naturally aligned to:
+- `crashYear`
+- `crashFinancialYear`
 
-Most flagged issues were warning-level completeness gaps rather than major structural defects.
+than to a strongly event-date-driven operational reporting design.
 
-## Repository Structure
+---
 
-```text
-nz-road-safety-data-quality-monitoring/
-├─ README.md
-├─ .gitignore
-├─ data/
-│  ├─ raw/
-│  ├─ processed/
-│  └─ reference/
-├─ scripts/
-│  ├─ 01_field_inventory.R
-│  ├─ 02_quality_checks.R
-│  ├─ 02a_review_severity_conflicts.R
-│  └─ 03_exception_review_and_monitoring_layer.R
-├─ sql/
-├─ outputs/
-│  ├─ figures/
-│  ├─ tables/
-│  └─ excel/
-├─ docs/
-│  ├─ project_charter.md
-│  ├─ executive_summary.md
-│  ├─ stakeholder_brief.md
-│  ├─ methodology.md
-│  ├─ data_dictionary.md
-│  ├─ assumptions_and_limitations.md
-│  ├─ data_sources.md
-│  ├─ project_status.md
-│  └─ decision_log.md
-└─ assets/
+## Interpretation Approach
+
+A core project principle is:
+
+**validate before interpreting**
+
+This means stakeholder-facing interpretation is intentionally based on:
+- field inventory
+- formal validation logic
+- targeted severity exception review
+- monitoring-oriented summary outputs
+- documented caveats and limitations
+
+The project also applies a **materiality-based interpretation** rather than treating every flagged row as an equally important stakeholder issue.
+
+In practice, this means:
+- low-volume exceptions are interpreted proportionately
+- national monitoring use is distinguished from detailed geographic reporting risk
+- isolated anomalies are not automatically elevated into headline reporting concerns
+
+---
+
+## Supporting Documentation
+
+Further project interpretation and documentation are available in:
+- `docs/project_status.md`
+- `docs/decision_log.md`
+- `docs/executive_summary.md`
+- `docs/final_reporting_position.md`
+- `docs/stakeholder_brief.md`
+- `docs/project_charter.md`
+- `docs/methodology.md`
+- `docs/data_dictionary.md`
+- `docs/assumptions_and_limitations.md`
+- `docs/data_sources.md`
+
+---
+
+## Important Positioning Note
+
+This repository is an independent portfolio project using publicly available data.
+
+It does not represent:
+- official NZTA analysis
+- official government reporting
+- operational sign-off on source-system quality
+- a production enterprise reporting framework
+
+Its purpose is to demonstrate disciplined analyst practice in assessing whether a public dataset is usable for structured monitoring, and how caveats should be documented before interpretation.
+
+---
+
+## Final Takeaway
+
+The version 1 conclusion is that the reviewed extract appears usable for structured monitoring purposes, provided that:
+- low-volume exceptions are interpreted proportionately
+- geographic completeness caveats are disclosed where relevant
+- outputs are not overstated beyond the scope of the reviewed public extract
+
+In practical terms, the project is best described as:
+
+**a monitoring-ready, documentation-heavy portfolio workflow with targeted caveats rather than broad reliability concerns**

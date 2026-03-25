@@ -1,90 +1,98 @@
 # Stakeholder Brief
 
 ## Project Title
-
 **NZ Road Safety Data Quality & Monitoring Review**
 
 ## Brief Summary
+This project is a public-sector style analytical review of publicly available New Zealand road safety data from the NZTA Crash Analysis System (CAS).
 
-This project is a public-sector style analytical review designed to assess whether publicly available NZ road safety data is suitable for reliable reporting and monitoring.
+The purpose is not simply to describe crash patterns, but to assess whether the available extract is reliable enough for structured reporting and monitoring before stakeholder-facing interpretation is produced.
 
-Rather than focusing only on charts or descriptive analysis, the project examines whether the source data is complete, internally consistent, and current enough to support interpretation. It also aims to translate technical review findings into a format that a non-technical stakeholder could understand.
+The review is designed to show how an analyst might move from raw public data to a more disciplined reporting position through:
+- field inventory and structural review
+- formal data quality validation
+- targeted exception review
+- monitoring-ready summary outputs
+- stakeholder-facing interpretation and caveats
 
 ## Intended Audience
+This brief is written for a non-technical or semi-technical stakeholder who may rely on reporting outputs without working directly in the raw source data.
 
-This brief is written for a stakeholder who may rely on reporting outputs but may not work directly with raw data. This includes:
-
+This includes:
 - managers
-- policy staff
 - reporting users
+- policy or planning staff
 - operational stakeholders
 
-## Problem Statement
+## Why This Review Matters
+Trend outputs can be misleading if the underlying data is incomplete, internally inconsistent, or used without appropriate caveats.
 
-A reporting trend can be misleading if the underlying data has gaps, delays, or classification issues.
+Before using road safety data to compare periods or support discussion, an analyst should first establish:
+- whether the source appears sufficiently complete for reporting
+- whether any exceptions are material or low-volume
+- whether identified issues affect national monitoring, detailed geographic reporting, or both
+- what limitations should be disclosed before interpretation
 
-Before using road safety data to summarise changes, compare periods, or support decisions, an analyst should first confirm:
+## Current Project Position
+The repository has moved beyond setup and first-pass validation.
 
-- whether the data appears complete
-- whether recent values are still stabilising
-- whether field definitions are comparable over time
-- whether any obvious anomalies require caution
+It now includes:
+- a completed field inventory layer
+- a formal quality validation layer
+- a targeted severity exception review
+- a monitoring layer that converts validation outputs into issue summaries, exception review outputs, and annual / financial-year monitoring summaries
 
-## What This Project Will Deliver
+At this stage, the project is focused on final interpretation, stakeholder-safe wording, and portfolio presentation polish rather than redesigning the validation logic.
 
-This project will deliver:
+## Stakeholder-Facing Interpretation
+Based on the current version 1 workflow, the extract appears suitable for:
+- annual monitoring
+- financial-year monitoring
+- severity and outcome review
+- stakeholder-facing interpretation with targeted caveats
 
-- a structured review of data quality risks
-- a set of monitoring-ready metrics
-- clear documentation of assumptions and limitations
-- a concise explanation of which trends appear dependable
-- a record of issues that should be considered before reporting
+No major high-volume structural failures were identified in the current validation process.
 
-## What This Project Will Not Claim
+Most flagged items were low-volume exceptions or warning-level completeness gaps rather than broad defects that would materially weaken national monitoring use.
 
-This project will not:
+## Main Residual Caveat
+The main residual stakeholder-relevant caveat is a very small number of records with incomplete geographic reference fields, including fields such as TLA and other small-area identifiers.
 
-- claim to represent official NZTA analysis
-- claim direct policy impact
-- present public data as if it were an internal operational source
-- overstate uncertain trends as confirmed findings
+This does not appear material to:
+- national annual summaries
+- national financial-year summaries
+- broad monitoring interpretation
 
-## Key Stakeholder Value
+However, it should be noted where reporting moves into:
+- TLA-level outputs
+- area-unit or meshblock-linked views
+- map-based interpretation
+- tightly scoped local-area reporting
 
-The value of this project is that it demonstrates a disciplined analytical approach.
+## Monitored Exception
+A separate isolated historical exception remains on record: one 2005 Auckland record with missing `fatalCount`, `seriousInjuryCount`, and `minorInjuryCount`.
 
-Instead of moving directly from raw data to charts, it shows a workflow that:
+Given its isolated nature, this is retained as a monitored exception rather than treated as a headline stakeholder concern.
 
-1. checks the reliability of the source
-2. identifies issues that affect interpretation
-3. separates stronger findings from weaker ones
-4. documents those decisions clearly
+## Final Position for Version 1
+The version 1 reporting position is best described as:
 
-This helps reduce the risk of over-interpreting incomplete or unstable data.
+**fit for monitoring use, with targeted caveats rather than broad reliability concerns**
 
-## Questions This Review Helps Answer
+In practice, this means:
+- suitable for annual monitoring
+- suitable for financial-year monitoring
+- not materially undermined by high-volume structural failure
+- appropriate for stakeholder-facing use when geographic completeness caveats are stated clearly
 
-- Is the dataset usable for monitoring?
-- Which metrics are safe to report with confidence?
-- Which recent values need caution?
-- What quality issues should be disclosed to users?
-- What follow-up checks should be considered in future reporting cycles?
+## What This Project Does Not Claim
+This project does not:
+- represent official NZTA analysis
+- claim policy impact
+- present public data as if it were an internal operational reporting source
+- overstate isolated exceptions as broad structural failure
 
-## Deliverable Format
+## Practical Takeaway
+A stakeholder using this dataset for broad monitoring should be able to proceed with reasonable confidence.
 
-The project is being packaged in a GitHub repository with structured documentation, scripts, and supporting outputs so that the workflow can be reviewed transparently and understood without relying on verbal explanation alone.
-
-## Current Status
-
-The project has moved beyond setup and documentation.
-
-The repository now includes a completed field inventory layer, a formal quality validation layer, a targeted severity exception review, and a first monitoring layer that converts validation outputs into stakeholder-facing issue summaries.
-
-### Low-volume exception review
-
-The exception review identified two residual themes.
-
-The first is a very small number of records with incomplete geographic reference fields, including missing TLA and related small-area identifiers. These records are retained in the stakeholder-facing issue register because they are relevant to location-based reporting quality, even though they are not material to national annual or financial-year monitoring.
-
-The second is a single historical record from 2005 with missing injury-count fields. This has been retained as a monitored exception but is not treated as a headline reporting risk.
-
+Where reporting becomes more geographically granular, a short caveat should be included noting that a very small number of records have incomplete geographic reference fields, which may slightly reduce precision for fine-grained local reporting.
