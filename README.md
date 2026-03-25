@@ -168,6 +168,21 @@ The project assesses data reliability using the following categories:
 - `outputs/tables/priority_field_completeness_by_financial_year.csv`
 - `outputs/tables/stakeholder_quality_headlines.csv`
 
+## Documentation
+
+Key supporting documents for the current Phase 3 repository position are listed below:
+
+- `docs/project_charter.md` — project scope, purpose, and portfolio framing
+- `docs/methodology.md` — validation and monitoring workflow approach
+- `docs/data_dictionary.md` — working field definitions and field usage decisions
+- `docs/assumptions_and_limitations.md` — analytical caveats and version 1 limits
+- `docs/data_sources.md` — source reference and extract context
+- `docs/executive_summary.md` — concise portfolio-level summary of findings
+- `docs/stakeholder_brief.md` — short stakeholder-oriented interpretation summary
+- `docs/project_status.md` — current repository phase, completed work, and next steps
+- `docs/decision_log.md` — major direction choices and reasoning history
+- `docs/stakeholder_issue_register_final.md` — final stakeholder-facing interpretation of residual issues carried forward from the technical validation and exception-review layers
+
 ## Current Validation Position
 
 The current validation position is that the extract does not show high-volume structural failures.
@@ -207,6 +222,7 @@ nz-road-safety-data-quality-monitoring/
 │  ├─ project_charter.md
 │  ├─ executive_summary.md
 │  ├─ stakeholder_brief.md
+│  ├─ stakeholder_issue_register_final.md
 │  ├─ methodology.md
 │  ├─ data_dictionary.md
 │  ├─ assumptions_and_limitations.md
