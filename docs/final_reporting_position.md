@@ -43,6 +43,7 @@ The version 1 conclusion is based on a layered workflow that includes:
 - quality validation
 - targeted severity exception review
 - exception review and monitoring-oriented summary outputs
+- presentation-facing static outputs built from the completed review
 
 The workflow was intentionally designed around the principle:
 
@@ -56,6 +57,8 @@ It was reached after structured review of:
 - internal consistency
 - uniqueness
 - exception materiality
+
+That reviewed position was then carried forward into the repository's front-facing outputs, including static figures, README presentation, and other stakeholder-facing summary artefacts.
 
 ---
 
@@ -163,4 +166,4 @@ In practice, this means:
 - low-volume exceptions should be interpreted in context
 - detailed geographic reporting requires more caution than national aggregate reporting
 
-This is the final reporting position for the current version 1 workflow.
+This is the final reporting position for the current version 1 workflow, and it should remain consistent across documentation, static figures, README presentation, and other front-facing portfolio outputs.

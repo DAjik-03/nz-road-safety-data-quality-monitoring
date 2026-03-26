@@ -3,11 +3,12 @@
 ## Purpose of this document
 This log records the main analytical and presentation decisions that shaped the Version 1 workflow and reporting position.
 
-The main analytical structure is in place, including:
+The main Version 1 workflow structure is in place, including:
 - field inventory
 - quality validation
 - severity exception review
 - exception review and monitoring layer outputs
+- presentation-facing static outputs
 - stakeholder-facing presentation artefacts
 
 At this stage, the main role of this document is to explain the reasoning behind the current Version 1 position rather than to reopen foundational design choices.
@@ -276,7 +277,18 @@ Confirmed
 ## Decision 13 — Add front-facing presentation outputs without changing the analytical core
 
 **Decision**  
-A small set of front-facing presentation outputs was added to the repository, including a one-page portfolio snapshot, a workflow diagram, a Power BI summary view, a static figure set, a stakeholder-friendly Excel export, and a concise monitoring summary note.
+A small set of front-facing presentation outputs was added to the repository without changing the analytical core of Version 1.
+
+These outputs include:
+- a one-page portfolio snapshot
+- a workflow diagram
+- a Power BI summary view
+- a static figure set
+- a stakeholder-friendly Excel export
+- a concise monitoring summary note
+
+The static figure layer is implemented through:
+- `scripts/04_static_figures.R`
 
 **Reasoning**  
 The project had already completed its core validation-led analytical build.  
@@ -286,6 +298,8 @@ These additions were made to improve portfolio readability and stakeholder-facin
 **Implication**  
 The project remains an independent public-data portfolio review rather than an official reporting product.  
 The added artefacts are packaging outputs designed to make the completed findings easier to assess and communicate at a glance.
+
+They should be interpreted as presentation outputs built from completed review conclusions rather than as a separate analytical redesign.
 
 **Status**  
 Confirmed
@@ -316,13 +330,13 @@ The following are treated as settled for Version 1 and are not being reopened as
 
 ---
 
-## Final Note
-This decision log should be read together with:
 - `README.md`
 - `docs/project_status.md`
 - `docs/executive_summary.md`
+- `docs/final_reporting_position.md`
 - `docs/stakeholder_brief.md`
 - `docs/monitoring_summary.md`
+- `docs/stakeholder_issue_register_final.md`
 - `docs/assumptions_and_limitations.md`
 
 Its function is to show that the project’s final position was not accidental or purely descriptive, but the result of documented analytical choices made within a bounded Version 1 workflow.

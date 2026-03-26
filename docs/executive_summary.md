@@ -8,8 +8,9 @@ The repository now includes:
 - a formal quality validation layer
 - a targeted severity exception review
 - a monitoring layer that converts validation outputs into issue summaries, exception review outputs, and annual / financial-year monitoring summaries
+- a presentation layer that converts completed conclusions into static figures and other front-facing portfolio outputs
 
-The current phase is stakeholder-facing packaging, interpretation, and final portfolio presentation polish.
+The current phase is stakeholder-facing packaging, interpretation, and final portfolio presentation polish rather than further redesign of the analytical core.
 
 ---
 
@@ -17,6 +18,8 @@ The current phase is stakeholder-facing packaging, interpretation, and final por
 This project reviewed the quality and reporting readiness of publicly available New Zealand road safety data from the NZTA Crash Analysis System (CAS).
 
 The purpose of the review was not simply to describe crash patterns, but to assess whether the extract is sufficiently reliable for structured reporting and monitoring before stakeholder-facing interpretation is produced.
+
+That reviewed position also underpins the repository's final presentation-facing outputs, rather than being introduced only at the visual packaging stage.
 
 Based on the current version 1 workflow, the extract appears suitable for:
 - annual monitoring
@@ -84,3 +87,5 @@ A stakeholder using this dataset for broad monitoring should be able to proceed 
 Where reporting moves into detailed geographic breakdowns or map-based interpretation, a short caveat should be included noting that a very small number of records have incomplete geographic reference fields.
 
 In practice, the current extract appears suitable for structured monitoring use, provided that geographic completeness caveats are stated clearly and low-volume exceptions are interpreted proportionately.
+
+That same position should remain consistent across stakeholder summaries, static figures, README presentation, and other front-facing portfolio outputs.

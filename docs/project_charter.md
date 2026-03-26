@@ -19,6 +19,7 @@ The project is designed to demonstrate how an analyst can move from a raw public
 - targeted exception review
 - monitoring-oriented summary outputs
 - stakeholder-safe interpretation with documented caveats
+- presentation-facing outputs built from the completed review
 
 ---
 
@@ -66,7 +67,7 @@ This reflects the structure of the reviewed extract, which is more naturally ali
 ---
 
 ## Analytical Workflow
-The version 1 workflow is structured as four linked analytical layers:
+The version 1 workflow is structured as five linked workflow layers:
 
 1. **Field Inventory Layer**
    - review raw extract structure
@@ -85,6 +86,10 @@ The version 1 workflow is structured as four linked analytical layers:
 4. **Exception Review and Monitoring Layer**
    - convert raw validation outputs into monitoring-ready and stakeholder-facing summary structures
    - support issue logging, annual / financial-year review, and documented reporting caveats
+
+5. **Presentation-Facing Output Layer**
+   - convert completed conclusions into static figures and other front-facing portfolio outputs
+   - support README presentation, stakeholder review, and portfolio communication without changing the analytical core
 
 ---
 
@@ -172,13 +177,17 @@ The project is intended to produce and maintain:
 - exception review outputs
 - monitoring-oriented summary outputs
 - stakeholder-facing interpretation documents
+- presentation-facing static and summary outputs
 
 Key repository materials include:
 - `README.md`
 - `docs/project_status.md`
 - `docs/decision_log.md`
 - `docs/executive_summary.md`
+- `docs/final_reporting_position.md`
 - `docs/stakeholder_brief.md`
+- `docs/monitoring_summary.md`
+- `docs/stakeholder_issue_register_final.md`
 - `docs/project_charter.md`
 - `docs/methodology.md`
 - `docs/data_dictionary.md`
@@ -224,14 +233,15 @@ All findings should be read as:
 ---
 
 ## Current Phase
-**Phase 3 — Quality validation complete and monitoring layer implemented**
+**Phase 4 — Interpretation, presentation outputs, and final portfolio packaging**
 
-The project has moved beyond setup and foundational analytical design.
+The core validation-led analytical build has been completed.
 
 The current focus is:
 - stakeholder-facing packaging
 - interpretation refinement
 - documentation consistency
+- presentation-facing static outputs
 - final portfolio presentation polish
 
 This means the project is now in a finishing and communication phase rather than a foundational build phase.

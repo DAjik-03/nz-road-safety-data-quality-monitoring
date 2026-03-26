@@ -1,9 +1,3 @@
-
----
-
-### `docs/project_status.md`
-
-```md
 # Project Status
 
 ## Current Phase
@@ -113,6 +107,9 @@ Representative outputs:
 - `outputs/tables/stakeholder_quality_headlines.csv`
 
 ### 5. Stakeholder-Facing Presentation Outputs — Complete
+Script:
+- `scripts/04_static_figures.R`
+
 Purpose:
 - make the completed review easier to assess at a glance
 - provide front-facing outputs alongside the technical documentation
@@ -198,6 +195,7 @@ The main reference documents for the current repository state are:
 - `docs/final_reporting_position.md`
 - `docs/stakeholder_brief.md`
 - `docs/monitoring_summary.md`
+- `docs/stakeholder_issue_register_final.md`
 - `docs/project_charter.md`
 - `docs/methodology.md`
 - `docs/data_dictionary.md`

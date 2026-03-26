@@ -9,6 +9,7 @@ It is designed to support:
 - exception review
 - monitoring-oriented summaries
 - stakeholder-facing caveat wording
+- consistent field interpretation across presentation-facing outputs
 
 This is not intended to be an official NZTA schema document.  
 It is a project-facing data dictionary based on the reviewed extract and the project workflow.
@@ -265,6 +266,8 @@ This dictionary should be read alongside:
 - `docs/executive_summary.md`
 - `docs/final_reporting_position.md`
 - `docs/stakeholder_brief.md`
+- `docs/monitoring_summary.md`
+- `docs/stakeholder_issue_register_final.md`
 - `docs/methodology.md`
 - `docs/assumptions_and_limitations.md`
 - `docs/data_sources.md`
@@ -291,6 +294,8 @@ In practical terms:
 - severity review relies heavily on `crashSeverity`, `fatalCount`, `seriousInjuryCount`, and `minorInjuryCount`
 - geographic caveat interpretation relies most heavily on `region`, `tlaId`, `tlaName`, `areaUnitID`, and `meshblockId`
 - several context and impact fields are conditional-use rather than universally populated
+
+These same field interpretation boundaries should remain consistent across summary documentation, static figures, README presentation, and other front-facing portfolio outputs.
 
 This is consistent with the overall version 1 conclusion that the reviewed extract appears:
 

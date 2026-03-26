@@ -169,7 +169,8 @@ nz-road-safety-data-quality-monitoring/
 │   ├── 01_field_inventory.R
 │   ├── 02_quality_checks.R
 │   ├── 02a_review_severity_conflicts.R
-│   └── 03_exception_review_and_monitoring_layer.R
+│   ├── 03_exception_review_and_monitoring_layer.R
+│   └── 04_static_figures.R
 │
 ├── outputs/
 │   ├── tables/
@@ -188,6 +189,7 @@ nz-road-safety-data-quality-monitoring/
     ├── final_reporting_position.md
     ├── stakeholder_brief.md
     ├── monitoring_summary.md
+    ├── stakeholder_issue_register_final.md
     ├── project_charter.md
     ├── methodology.md
     ├── data_dictionary.md
@@ -199,21 +201,19 @@ Key Outputs
 The repository includes both technical monitoring outputs and presentation-facing portfolio outputs.
 
 Technical outputs
-
-field inventory and reviewed field coverage
-issue summaries and exception registers
-annual and financial-year monitoring summaries
-priority-field completeness tracking
-stakeholder headline summary tables
+- field inventory and reviewed field coverage
+- issue summaries and exception registers
+- annual and financial-year monitoring summaries
+- priority-field completeness tracking
+- stakeholder headline summary tables
 
 Presentation outputs
-
-one-page portfolio snapshot
-workflow diagram
-Power BI summary view
-static figure set
-stakeholder-friendly Excel export
-monitoring summary note
+- one-page portfolio snapshot
+- workflow diagram
+- Power BI summary view
+- static figure set
+- stakeholder-friendly Excel export
+- monitoring summary note
 
 For field-level structure and missingness, outputs/tables/field_inventory.csv is the source-of-truth inventory output for the reviewed Version 1 extract.
 
@@ -223,18 +223,18 @@ Analytical Framing
 
 Version 1 is primarily framed around:
 
-annual monitoring
-financial-year monitoring
-severity and outcome review
-geographic data quality review
-issue logging and monitoring-oriented summaries
+- annual monitoring
+- financial-year monitoring
+- severity and outcome review
+- geographic data quality review
+- issue logging and monitoring-oriented summaries
 
 It is not primarily framed as a monthly or daily operational reporting workflow.
 
 This reflects the structure of the reviewed extract, which is more naturally aligned to:
 
-crashYear
-crashFinancialYear
+- crashYear
+- crashFinancialYear
 
 than to a strongly event-date-driven operational reporting design.
 
@@ -246,41 +246,44 @@ validate before interpreting
 
 This means stakeholder-facing interpretation is intentionally based on:
 
-field inventory
-formal validation logic
-targeted severity exception review
-monitoring-oriented summary outputs
-documented caveats and limitations
+- field inventory
+- formal validation logic
+- targeted severity exception review
+- monitoring-oriented summary outputs
+- documented caveats and limitations
 
 The project also applies a materiality-based interpretation rather than treating every flagged row as an equally important stakeholder issue.
 
 In practice, this means:
 
-low-volume exceptions are interpreted proportionately
-national monitoring use is distinguished from detailed geographic reporting risk
-isolated anomalies are not automatically elevated into headline reporting concerns
+- low-volume exceptions are interpreted proportionately
+- national monitoring use is distinguished from detailed geographic reporting risk
+- isolated anomalies are not automatically elevated into headline reporting concerns
+
 Supporting Documentation
 
 Further project interpretation and documentation are available in:
 
-docs/project_status.md
-docs/decision_log.md
-docs/executive_summary.md
-docs/final_reporting_position.md
-docs/stakeholder_brief.md
-docs/monitoring_summary.md
-docs/project_charter.md
-docs/methodology.md
-docs/data_dictionary.md
-docs/assumptions_and_limitations.md
-docs/data_sources.md
+- docs/project_status.md
+- docs/decision_log.md
+- docs/executive_summary.md
+- docs/final_reporting_position.md
+- docs/stakeholder_brief.md
+- docs/monitoring_summary.md
+- docs/stakeholder_issue_register_final.md
+- docs/project_charter.md
+- docs/methodology.md
+- docs/data_dictionary.md
+- docs/assumptions_and_limitations.md
+- docs/data_sources.md
+
 Important Positioning Note
 
 This repository is an independent portfolio project using publicly available data.
 
 It does not represent:
 
-official NZTA analysis
-official government reporting
-operational sign-off on source-system quality
-a production enterprise reporting framework
+- official NZTA analysis
+- official government reporting
+- operational sign-off on source-system quality
+- a production enterprise reporting framework

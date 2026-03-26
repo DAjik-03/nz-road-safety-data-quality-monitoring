@@ -6,11 +6,13 @@ This document translates the annual and financial-year monitoring summary output
 
 It is intended to show how the quality-monitoring layer can be read in practice, without requiring a stakeholder to inspect the underlying technical summary tables directly.
 
+It also acts as a bridge between the technical monitoring outputs and the repository's presentation-facing outputs, including static figures, portfolio snapshot material, and summary reporting artefacts.
+
 ---
 
 ## Overall Monitoring Position
 
-The monitoring outputs support the same overall interpretation reached in the validation and exception-review layers:
+The monitoring outputs support the same overall interpretation reached in the validation and exception-review layers, and carried through into the final presentation-facing outputs:
 
 **the current extract is usable for version 1 annual and financial-year monitoring, with targeted caveats rather than broad reliability concerns.**
 
@@ -132,3 +134,5 @@ For stakeholder-facing reporting, the monitoring outputs support the following p
 In practical terms, this means the dataset can be presented as:
 
 **fit for version 1 monitoring use, with targeted caveats rather than broad reliability concerns.**
+
+That same position should remain consistent across stakeholder summaries, static figures, README presentation, and other front-facing portfolio outputs.

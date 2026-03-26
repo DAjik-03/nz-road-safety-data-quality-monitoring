@@ -93,6 +93,9 @@ The source is handled through a layered analytical workflow:
 This means the source is not interpreted directly without review.  
 It is first assessed for structure, completeness, validity, consistency, uniqueness, and exception patterns before stakeholder-facing conclusions are drawn.
 
+Presentation-facing static outputs are produced only after this reviewed interpretation stage.  
+They are generated from completed monitoring conclusions and supporting outputs, rather than from unreviewed direct source use.
+
 ---
 
 ## Extract-Specific Interpretation
@@ -149,14 +152,15 @@ In practical terms, the current source is best understood as:
 
 ---
 
-## Related Documentation
-This document should be read together with:
 - `README.md`
 - `docs/project_status.md`
 - `docs/decision_log.md`
 - `docs/executive_summary.md`
+- `docs/final_reporting_position.md`
 - `docs/stakeholder_brief.md`
+- `docs/monitoring_summary.md`
+- `docs/stakeholder_issue_register_final.md`
 - `docs/methodology.md`
 - `docs/assumptions_and_limitations.md`
 
-Together, these documents explain how the source was reviewed, how findings were interpreted, and how reporting boundaries were defined for version 1.
+Together, these documents explain how the source was reviewed, how findings were interpreted, how monitoring boundaries were defined for version 1, and how the completed review was translated into stakeholder-facing outputs.

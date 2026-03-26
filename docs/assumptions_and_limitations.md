@@ -8,13 +8,13 @@ Its purpose is to support disciplined use of the project outputs by clarifying w
 ## Analytical Position
 This project is designed as a public-sector style data quality and monitoring review.
 
-It is not a simple descriptive dashboard exercise.  
 It is intended to show how publicly available crash data can be reviewed for reporting readiness through:
 - field inventory
 - quality validation
 - exception review
 - monitoring-oriented summary outputs
 - stakeholder-facing interpretation with caveats
+- presentation-facing outputs built from the completed review
 
 The current version 1 position is:
 
@@ -56,6 +56,8 @@ It is not primarily designed as a monthly or daily operational reporting framewo
 This project assumes that stakeholder-facing interpretation should only follow after the source has been reviewed for structural quality risks.
 
 This means trend or summary discussion is intentionally framed by validation outcomes, exception review, and documented caveats.
+
+The same principle applies to front-facing portfolio outputs such as static figures, README presentation, and summary artefacts: they should reflect the reviewed interpretation rather than introduce a new one.
 
 ## Main Limitations
 
@@ -142,3 +144,5 @@ Overall, the reviewed extract appears usable for structured monitoring purposes,
 - low-volume exceptions are interpreted proportionately
 - geographic completeness caveats are disclosed where relevant
 - outputs are not overstated beyond the scope of the reviewed extract
+
+These same limitation boundaries should remain visible across documentation, static figures, README presentation, and other front-facing portfolio outputs.

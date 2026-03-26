@@ -14,6 +14,7 @@ The review is designed to show how an analyst might move from raw public data to
 - targeted exception review
 - monitoring-ready summary outputs
 - stakeholder-facing interpretation and caveats
+- presentation-facing outputs built from the completed review
 
 ## Intended Audience
 This brief is written for a non-technical or semi-technical stakeholder who may rely on reporting outputs without working directly in the raw source data.
@@ -41,6 +42,7 @@ It now includes:
 - a formal quality validation layer
 - a targeted severity exception review
 - a monitoring layer that converts validation outputs into issue summaries, exception review outputs, and annual / financial-year monitoring summaries
+- a presentation layer that converts completed conclusions into static figures and other front-facing portfolio outputs
 
 At this stage, the project is focused on final interpretation, stakeholder-safe wording, and portfolio presentation polish rather than redesigning the validation logic.
 
@@ -84,6 +86,7 @@ In practice, this means:
 - suitable for financial-year monitoring
 - not materially undermined by high-volume structural failure
 - appropriate for stakeholder-facing use when geographic completeness caveats are stated clearly
+- suitable for consistent use across summary documentation and presentation-facing outputs
 
 ## What This Project Does Not Claim
 This project does not:

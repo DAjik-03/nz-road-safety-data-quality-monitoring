@@ -69,15 +69,19 @@ Accordingly, the methodology is designed to assess reporting readiness within th
 ---
 
 ## Workflow Overview
-The version 1 workflow is structured as four linked analytical layers:
+The version 1 workflow is structured as five linked workflow layers:
 
 1. **Field inventory**
 2. **Quality validation**
 3. **Targeted exception review**
 4. **Monitoring layer and stakeholder-facing interpretation**
+5. **Presentation-facing static outputs**
 
 This sequence is intentional.  
 It prevents reporting conclusions from being produced before the extract has been structurally reviewed and quality-checked.
+
+The first four layers establish reporting-readiness judgement and interpretation boundaries.  
+The fifth layer packages those completed conclusions into static, presentation-facing outputs for portfolio, README, and stakeholder review use.
 
 ---
 
@@ -203,6 +207,33 @@ It is the point at which technical validation outputs become usable for:
 
 ---
 
+## Layer 5 — Presentation-Facing Static Outputs
+
+### Script
+- `scripts/04_static_figures.R`
+
+### Purpose
+This layer converts the completed monitoring interpretation into static visual outputs that can be reviewed quickly by portfolio readers, hiring managers, and non-technical stakeholders.
+
+It is not used to generate new analytical conclusions.  
+Its purpose is to present already-reviewed findings in a front-facing and communication-friendly format.
+
+### Representative Outputs
+- `outputs/figures/fig_01_v1_validation_to_monitoring_workflow.png`
+- `outputs/figures/fig_02_validation_outcome_summary.png`
+- `outputs/figures/fig_03_quality_monitoring_annual_fy_issue_coverage.png`
+- `outputs/figures/fig_04_geographic_completeness_caveat_matrix.png`
+
+### Methodological Role
+This layer supports final communication rather than primary analysis.
+
+It helps ensure that:
+- the validation-led workflow can be understood at a glance
+- the final reporting position is visible in front-facing form
+- caveats remain tied to the documented interpretation rather than presented as isolated visuals
+
+---
+
 ## Exception Interpretation Approach
 
 ### Materiality-Based Interpretation
@@ -313,6 +344,7 @@ In practical terms, version 1 demonstrates:
 - materiality-based exception interpretation
 - monitoring-ready summary outputs
 - stakeholder-safe documentation of caveats
+- presentation-facing static communication outputs built from the completed review
 
 The resulting methodological position is that the reviewed extract appears usable for structured monitoring purposes, provided that:
 - low-volume exceptions are interpreted proportionately
