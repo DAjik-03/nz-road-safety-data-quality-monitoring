@@ -4,6 +4,8 @@ A validation-led analytical portfolio project using publicly available NZTA Cras
 
 This repository reviews whether a public crash data extract is reliable enough for structured monitoring before stakeholder-facing interpretation is produced.
 
+![Portfolio snapshot](assets/pbi_main_summary_screenshot.png)
+
 The workflow covers:
 - field inventory
 - quality validation
@@ -28,12 +30,12 @@ The project is intended to demonstrate:
 
 ## Current Status
 
-**Current phase:** Phase 3 — quality validation complete and monitoring layer implemented
+**Current phase:** Phase 3 complete — quality validation complete, monitoring layer implemented, and stakeholder-facing presentation outputs packaged
 
 The project has moved beyond setup and initial validation.  
-The repository now reflects a documentation-heavy, reporting-oriented analytical workflow focused on final interpretation, presentation polish, and portfolio packaging.
+The repository now reflects a documentation-heavy, reporting-oriented analytical workflow with front-facing presentation outputs added for portfolio use.
 
-Completed analytical layers:
+Completed analytical and presentation layers:
 
 1. **Field Inventory Layer**
    - `scripts/01_field_inventory.R`
@@ -50,6 +52,14 @@ Completed analytical layers:
 4. **Exception Review and Monitoring Layer**
    - `scripts/03_exception_review_and_monitoring_layer.R`
    - converts validation outputs into monitoring-ready and stakeholder-facing summary tables
+
+5. **Portfolio and Presentation Outputs**
+   - one-page portfolio snapshot
+   - workflow diagram
+   - Power BI summary view
+   - static figure set
+   - stakeholder-friendly Excel supporting export
+   - concise monitoring interpretation note
 
 ---
 
@@ -71,6 +81,9 @@ In practical terms, this means the current extract appears suitable for:
 
 For a concise one-page statement of the final version 1 conclusion, see:
 - `docs/final_reporting_position.md`
+
+For a stakeholder-facing monitoring interpretation note, see:
+- `docs/monitoring_summary.md`
 
 ---
 
@@ -111,14 +124,46 @@ Reviewed extract profile:
 
 ---
 
+## Portfolio Snapshot and Visual Outputs
+
+To make the completed review easier to assess at a glance, the repository includes a small set of front-facing presentation outputs alongside the core technical documentation.
+
+### Main visual assets
+- `assets/portfolio_snapshot_onepager.png` — one-page visual summary of the project position, key findings, and reporting caveat
+- `assets/project_workflow_diagram.png` — simplified workflow view showing how the project moves from field review through validation, exception review, monitoring, and final interpretation
+- `assets/pbi_main_summary_screenshot.png` — Power BI summary view used as the main dashboard-style presentation artifact
+
+### Static figures
+- `outputs/figures/fig_01_v1_validation_to_monitoring_workflow.png`
+- `outputs/figures/fig_02_validation_outcome_summary.png`
+- `outputs/figures/fig_03_quality_monitoring_annual_fy_issue_coverage.png`
+- `outputs/figures/fig_04_geographic_completeness_caveat_matrix.png`
+
+### Supporting export
+- `outputs/excel/nz-road-safety-monitoring-supporting-export.xlsx` — stakeholder-friendly workbook summarising reporting position, validation outcomes, exceptions, and monitoring-facing caveats
+
+### Supporting interpretation note
+- `docs/monitoring_summary.md` — concise stakeholder-facing interpretation of what the validation and monitoring outputs mean for Version 1 use
+
+These outputs do not introduce a new analytical framework.  
+They package the completed validation-led review into recruiter-facing and stakeholder-facing outputs that make the project easier to assess at a glance.
+
+---
+
 ## Repository Structure
 
 ```text
 nz-road-safety-data-quality-monitoring/
 │
+├── assets/
+│   ├── portfolio_snapshot_onepager.png
+│   ├── project_workflow_diagram.png
+│   └── pbi_main_summary_screenshot.png
+│
 ├── data/
 │   ├── raw/
-│   └── processed/
+│   ├── processed/
+│   └── reference/
 │
 ├── scripts/
 │   ├── 01_field_inventory.R
@@ -127,13 +172,14 @@ nz-road-safety-data-quality-monitoring/
 │   └── 03_exception_review_and_monitoring_layer.R
 │
 ├── outputs/
-│   └── tables/
-│       ├── field_inventory.csv
-│       ├── issue_type_monitoring_summary.csv
-│       ├── issue_register_v1.csv
-│       ├── exception_review_register.csv
-│       ├── annual_quality_monitoring_summary.csv
-│       └── stakeholder_quality_headlines.csv
+│   ├── tables/
+│   ├── figures/
+│   │   ├── fig_01_v1_validation_to_monitoring_workflow.png
+│   │   ├── fig_02_validation_outcome_summary.png
+│   │   ├── fig_03_quality_monitoring_annual_fy_issue_coverage.png
+│   │   └── fig_04_geographic_completeness_caveat_matrix.png
+│   └── excel/
+│       └── nz-road-safety-monitoring-supporting-export.xlsx
 │
 └── docs/
     ├── project_status.md
@@ -141,114 +187,100 @@ nz-road-safety-data-quality-monitoring/
     ├── executive_summary.md
     ├── final_reporting_position.md
     ├── stakeholder_brief.md
+    ├── monitoring_summary.md
     ├── project_charter.md
     ├── methodology.md
     ├── data_dictionary.md
     ├── assumptions_and_limitations.md
     └── data_sources.md
-```
 
----
+Key Outputs
 
-## Key Monitoring Outputs
+The repository includes both technical monitoring outputs and presentation-facing portfolio outputs.
 
-The monitoring and documentation layer is designed to produce reporting-ready summary outputs such as:
-- `outputs/tables/field_inventory.csv`
-- `outputs/tables/issue_type_monitoring_summary.csv`
-- `outputs/tables/issue_register_v1.csv`
-- `outputs/tables/exception_review_register.csv`
-- `outputs/tables/exception_review_records.csv`
-- `outputs/tables/annual_quality_monitoring_summary.csv`
-- `outputs/tables/financial_year_quality_monitoring_summary.csv`
-- `outputs/tables/priority_field_completeness_by_year.csv`
-- `outputs/tables/priority_field_completeness_by_financial_year.csv`
-- `outputs/tables/stakeholder_quality_headlines.csv`
+Technical outputs
 
-For field-level structure and missingness, `outputs/tables/field_inventory.csv` is the source-of-truth inventory output for the reviewed version 1 extract.
+field inventory and reviewed field coverage
+issue summaries and exception registers
+annual and financial-year monitoring summaries
+priority-field completeness tracking
+stakeholder headline summary tables
 
-Note: some output files may not be visible in the repository if they are not tracked in Git.  
-Where this occurs, scripts and documentation should be treated as the source of truth.
+Presentation outputs
 
----
+one-page portfolio snapshot
+workflow diagram
+Power BI summary view
+static figure set
+stakeholder-friendly Excel export
+monitoring summary note
 
-## Analytical Framing
+For field-level structure and missingness, outputs/tables/field_inventory.csv is the source-of-truth inventory output for the reviewed Version 1 extract.
+
+Where some generated outputs are not visible in Git, the scripts and supporting documentation should be treated as the source of truth.
+
+Analytical Framing
 
 Version 1 is primarily framed around:
-- annual monitoring
-- financial-year monitoring
-- severity and outcome review
-- geographic data quality review
-- issue logging and monitoring-oriented summaries
+
+annual monitoring
+financial-year monitoring
+severity and outcome review
+geographic data quality review
+issue logging and monitoring-oriented summaries
 
 It is not primarily framed as a monthly or daily operational reporting workflow.
 
 This reflects the structure of the reviewed extract, which is more naturally aligned to:
-- `crashYear`
-- `crashFinancialYear`
+
+crashYear
+crashFinancialYear
 
 than to a strongly event-date-driven operational reporting design.
 
----
-
-## Interpretation Approach
+Interpretation Approach
 
 A core project principle is:
 
-**validate before interpreting**
+validate before interpreting
 
 This means stakeholder-facing interpretation is intentionally based on:
-- field inventory
-- formal validation logic
-- targeted severity exception review
-- monitoring-oriented summary outputs
-- documented caveats and limitations
 
-The project also applies a **materiality-based interpretation** rather than treating every flagged row as an equally important stakeholder issue.
+field inventory
+formal validation logic
+targeted severity exception review
+monitoring-oriented summary outputs
+documented caveats and limitations
+
+The project also applies a materiality-based interpretation rather than treating every flagged row as an equally important stakeholder issue.
 
 In practice, this means:
-- low-volume exceptions are interpreted proportionately
-- national monitoring use is distinguished from detailed geographic reporting risk
-- isolated anomalies are not automatically elevated into headline reporting concerns
 
----
-
-## Supporting Documentation
+low-volume exceptions are interpreted proportionately
+national monitoring use is distinguished from detailed geographic reporting risk
+isolated anomalies are not automatically elevated into headline reporting concerns
+Supporting Documentation
 
 Further project interpretation and documentation are available in:
-- `docs/project_status.md`
-- `docs/decision_log.md`
-- `docs/executive_summary.md`
-- `docs/final_reporting_position.md`
-- `docs/stakeholder_brief.md`
-- `docs/project_charter.md`
-- `docs/methodology.md`
-- `docs/data_dictionary.md`
-- `docs/assumptions_and_limitations.md`
-- `docs/data_sources.md`
 
----
-
-## Important Positioning Note
+docs/project_status.md
+docs/decision_log.md
+docs/executive_summary.md
+docs/final_reporting_position.md
+docs/stakeholder_brief.md
+docs/monitoring_summary.md
+docs/project_charter.md
+docs/methodology.md
+docs/data_dictionary.md
+docs/assumptions_and_limitations.md
+docs/data_sources.md
+Important Positioning Note
 
 This repository is an independent portfolio project using publicly available data.
 
 It does not represent:
-- official NZTA analysis
-- official government reporting
-- operational sign-off on source-system quality
-- a production enterprise reporting framework
 
-Its purpose is to demonstrate disciplined analyst practice in assessing whether a public dataset is usable for structured monitoring, and how caveats should be documented before interpretation.
-
----
-
-## Final Takeaway
-
-The version 1 conclusion is that the reviewed extract appears usable for structured monitoring purposes, provided that:
-- low-volume exceptions are interpreted proportionately
-- geographic completeness caveats are disclosed where relevant
-- outputs are not overstated beyond the scope of the reviewed public extract
-
-In practical terms, the project is best described as:
-
-**a monitoring-ready, documentation-heavy portfolio workflow with targeted caveats rather than broad reliability concerns**
+official NZTA analysis
+official government reporting
+operational sign-off on source-system quality
+a production enterprise reporting framework

@@ -1,29 +1,16 @@
 # Decision Log
 
-## Purpose
-This document records the key analytical and reporting decisions made during the development of the NZ Road Safety Data Quality & Monitoring Review.
+## Purpose of this document
+This log records the main analytical and presentation decisions that shaped the Version 1 workflow and reporting position.
 
-It is intended to show:
-- how the project scope was framed
-- why specific analytical choices were made
-- how validation findings were interpreted
-- how the version 1 reporting position was established
-
-This is a portfolio-oriented decision record rather than a formal enterprise governance register.
-
----
-
-## Current Decision Position
-The core version 1 decisions are now considered stable.
-
-The project has moved beyond setup and design-phase uncertainty.  
 The main analytical structure is in place, including:
 - field inventory
 - quality validation
 - severity exception review
 - exception review and monitoring layer outputs
+- stakeholder-facing presentation artefacts
 
-At this stage, the main role of this document is to explain the reasoning behind the current version 1 position rather than to reopen foundational design choices.
+At this stage, the main role of this document is to explain the reasoning behind the current Version 1 position rather than to reopen foundational design choices.
 
 ---
 
@@ -70,7 +57,7 @@ Confirmed
 
 ---
 
-## Decision 3 — Frame version 1 around annual and financial-year monitoring
+## Decision 3 — Frame Version 1 around annual and financial-year monitoring
 
 **Decision**  
 Version 1 was framed primarily around annual and financial-year monitoring rather than monthly or daily operational reporting.
@@ -94,10 +81,10 @@ Confirmed
 
 ---
 
-## Decision 4 — Keep the project extract-specific and version 1 bounded
+## Decision 4 — Keep the project extract-specific and Version 1 bounded
 
 **Decision**  
-The project should present conclusions as extract-specific and version 1 appropriate rather than universal claims about all future CAS extracts.
+The project should present conclusions as extract-specific and Version 1 appropriate rather than universal claims about all future CAS extracts.
 
 **Reasoning**  
 The review is based on the currently assessed public extract and the current workflow implementation.  
@@ -105,7 +92,7 @@ It should not imply ongoing operational sign-off or permanent source-system guar
 
 **Implication**  
 Documentation consistently frames conclusions as:
-- version 1 appropriate
+- Version 1 appropriate
 - workflow-specific
 - bounded to the reviewed extract
 
@@ -127,7 +114,7 @@ A structured validation layer creates a defensible basis for distinguishing:
 - issues that matter for stakeholder reporting
 
 **Implication**  
-`scripts/02_quality_checks.R` became the core validation layer for version 1.
+`scripts/02_quality_checks.R` became the core validation layer for Version 1.
 
 **Status**  
 Confirmed
@@ -142,7 +129,7 @@ Severity-related conflicts should be interpreted with more nuance rather than tr
 **Reasoning**  
 Not all apparent severity conflicts carry the same reporting meaning.
 
-The version 1 refinement adopted was:
+The Version 1 refinement adopted was:
 - non-injury + fatal/serious counts = error
 - non-injury + minor-only count = warning
 
@@ -178,7 +165,7 @@ Confirmed
 ## Decision 8 — Treat incomplete geographic reference fields as the main residual stakeholder-facing caveat
 
 **Decision**  
-The main residual stakeholder-relevant caveat for version 1 should be incomplete geographic reference fields.
+The main residual stakeholder-relevant caveat for Version 1 should be incomplete geographic reference fields.
 
 **Reasoning**  
 A very small number of records show incomplete values in fields such as:
@@ -269,17 +256,36 @@ Confirmed
 The repository should now be treated as being in final interpretation and presentation polish mode rather than foundational build mode.
 
 **Reasoning**  
-The core version 1 analytical layers are already complete.
+The core Version 1 analytical layers are already complete.
 
 Reopening foundational design questions would create unnecessary churn and weaken the clarity of the final portfolio state.
 
 **Implication**  
-Natural next-step work is now concentrated in:
+Natural next-step work moved into:
 - README alignment
-- executive summary refinement
-- stakeholder brief wording polish
-- assumptions / limitations cleanup
-- final presentation consistency
+- wording consistency across documentation
+- stakeholder-facing interpretation polish
+- repository-facing presentation cleanup
+- final portfolio packaging
+
+**Status**  
+Confirmed
+
+---
+
+## Decision 13 — Add front-facing presentation outputs without changing the analytical core
+
+**Decision**  
+A small set of front-facing presentation outputs was added to the repository, including a one-page portfolio snapshot, a workflow diagram, a Power BI summary view, a static figure set, a stakeholder-friendly Excel export, and a concise monitoring summary note.
+
+**Reasoning**  
+The project had already completed its core validation-led analytical build.  
+However, the repository remained easier to understand after reading than at first glance.  
+These additions were made to improve portfolio readability and stakeholder-facing communication without introducing a new analytical framework or changing the established reporting position.
+
+**Implication**  
+The project remains an independent public-data portfolio review rather than an official reporting product.  
+The added artefacts are packaging outputs designed to make the completed findings easier to assess and communicate at a glance.
 
 **Status**  
 Confirmed
@@ -287,7 +293,7 @@ Confirmed
 ---
 
 ## Current Version 1 Position
-Taken together, the decisions above support the following version 1 conclusion:
+Taken together, the decisions above support the following Version 1 conclusion:
 
 - no major high-volume structural failures were identified
 - most flagged items are low-volume exceptions or warning-level completeness gaps
@@ -298,7 +304,7 @@ Taken together, the decisions above support the following version 1 conclusion:
 ---
 
 ## Decisions Not Being Reopened
-The following are treated as settled for version 1 and are not being reopened as if still under early design discussion:
+The following are treated as settled for Version 1 and are not being reopened as if still under early design discussion:
 - repository structure foundation
 - field inventory design
 - core validation design
@@ -306,6 +312,7 @@ The following are treated as settled for version 1 and are not being reopened as
 - monitoring layer design
 - annual / financial-year framing
 - materiality-based interpretation logic
+- front-facing packaging rationale
 
 ---
 
@@ -315,6 +322,7 @@ This decision log should be read together with:
 - `docs/project_status.md`
 - `docs/executive_summary.md`
 - `docs/stakeholder_brief.md`
+- `docs/monitoring_summary.md`
 - `docs/assumptions_and_limitations.md`
 
-Its function is to show that the project’s final position was not accidental or purely descriptive, but the result of documented analytical choices made within a bounded version 1 workflow.
+Its function is to show that the project’s final position was not accidental or purely descriptive, but the result of documented analytical choices made within a bounded Version 1 workflow.

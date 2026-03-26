@@ -1,17 +1,19 @@
+
+---
+
+### `docs/project_status.md`
+
+```md
 # Project Status
 
 ## Current Phase
-**Phase 3 — Quality validation complete and monitoring layer implemented**
+**Phase 3 complete — quality validation complete, monitoring layer implemented, and stakeholder-facing presentation outputs packaged**
 
 This project has progressed beyond initial setup, field inventory, and first-pass validation.
 
-The core analytical workflow for version 1 is already in place.  
-At this stage, the focus is no longer on rebuilding validation logic or redesigning the monitoring structure.  
-The current focus is:
-- stakeholder-facing packaging
-- interpretation refinement
-- portfolio presentation polish
-- documentation consistency across the repository
+The core analytical workflow for Version 1 is already in place.  
+At this stage, the repository is no longer being treated as a foundational build.  
+The remaining work is limited to final wording alignment, repository consistency, and portfolio presentation polish.
 
 ---
 
@@ -110,10 +112,29 @@ Representative outputs:
 - `outputs/tables/priority_field_completeness_by_financial_year.csv`
 - `outputs/tables/stakeholder_quality_headlines.csv`
 
+### 5. Stakeholder-Facing Presentation Outputs — Complete
+Purpose:
+- make the completed review easier to assess at a glance
+- provide front-facing outputs alongside the technical documentation
+- support README presentation, portfolio review, and interview discussion
+
+Added outputs:
+- `assets/portfolio_snapshot_onepager.png`
+- `assets/project_workflow_diagram.png`
+- `assets/NZ Road Safety Data Quality & Monitoring Review.png`
+- `outputs/figures/fig_01_v1_validation_to_monitoring_workflow.png`
+- `outputs/figures/fig_02_validation_outcome_summary.png`
+- `outputs/figures/fig_03_quality_monitoring_annual_fy_issue_coverage.png`
+- `outputs/figures/fig_04_geographic_completeness_caveat_matrix.png`
+- `outputs/excel/nz-road-safety-monitoring-supporting-export.xlsx`
+- `docs/monitoring_summary.md`
+
+These additions package the completed review more clearly, but they do not change the underlying analytical core or the Version 1 reporting position.
+
 ---
 
 ## Current Documented Position
-The current version 1 position is:
+The current Version 1 position is:
 
 - no major high-volume structural failures were identified
 - most flagged issues are low-volume exceptions or warning-level completeness gaps
@@ -161,7 +182,7 @@ Because this exception is isolated and low-volume, it is retained as a monitored
 ### 3. Materiality-based interpretation
 Low-volume error rows are not treated as automatically equivalent to broad reporting failure.
 
-For stakeholder-facing interpretation, version 1 applies a materiality-based position:
+For stakeholder-facing interpretation, Version 1 applies a materiality-based position:
 - low-volume exceptions are interpreted in context
 - caveats are prioritised according to likely reporting impact
 - national monitoring use is distinguished from detailed geographic reporting risk
@@ -174,7 +195,9 @@ The main reference documents for the current repository state are:
 - `docs/project_status.md`
 - `docs/decision_log.md`
 - `docs/executive_summary.md`
+- `docs/final_reporting_position.md`
 - `docs/stakeholder_brief.md`
+- `docs/monitoring_summary.md`
 - `docs/project_charter.md`
 - `docs/methodology.md`
 - `docs/data_dictionary.md`
@@ -184,34 +207,35 @@ The main reference documents for the current repository state are:
 Where minor differences appear between documentation, scripts, and visible tracked outputs, the working interpretation should prioritise:
 1. current repository documentation
 2. completed script structure
-3. documented version 1 analytical position
+3. documented Version 1 analytical position
 
 Outputs that are not visible in Git should not automatically be treated as absent if they are clearly defined in scripts and supporting documentation.
 
 ---
 
 ## What Is Already Considered Complete
-The following are already treated as completed for version 1 and should not be reopened as if still in design phase:
+The following are already treated as completed for Version 1 and should not be reopened as if still in design phase:
 - repository setup and initial project structure
 - Phase 1 documentation foundation
 - field inventory design
 - core validation logic design
 - severity exception review design
 - monitoring layer design
+- Version 1 reporting position
+- front-facing presentation artefact packaging
 
 The project is now in a finishing and presentation phase rather than a foundational build phase.
 
 ---
 
 ## Current Work Focus
-The most natural work at this stage is final presentation polish rather than additional core analysis.
+The most natural work at this stage is repository polish rather than additional core analysis.
 
 Current high-priority work areas are:
-- README, executive summary, and stakeholder brief wording alignment
-- stakeholder-facing interpretation refinement
-- issue register narrative cleanup
-- final portfolio presentation cleanup
-- optional reporting-pack style presentation artefacts
+- final README and documentation consistency checks
+- file placement and naming consistency across assets and outputs
+- light wording cleanup where needed
+- portfolio-ready maintenance rather than analytical redesign
 
 ---
 
@@ -229,11 +253,11 @@ Its purpose is to demonstrate disciplined analytical practice in assessing repor
 ---
 
 ## Version 1 Bottom Line
-The current version 1 conclusion is that the reviewed extract appears usable for structured monitoring purposes, provided that:
+The current Version 1 conclusion is that the reviewed extract appears usable for structured monitoring purposes, provided that:
 - low-volume exceptions are interpreted proportionately
 - geographic completeness caveats are disclosed where relevant
 - outputs are not overstated beyond the scope of the reviewed extract
 
 In practical terms, the project is best described as:
 
-**a monitoring-ready, documentation-heavy portfolio workflow with targeted caveats rather than broad reliability concerns**
+**a completed validation-led, documentation-heavy monitoring workflow with targeted caveats rather than broad reliability concerns**
