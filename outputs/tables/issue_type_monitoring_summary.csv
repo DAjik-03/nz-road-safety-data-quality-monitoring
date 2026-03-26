@@ -1,0 +1,15 @@
+issue_category,check_name,field_name,issue_level,issue_row_n,affected_records_n,affected_record_pct_of_rows,affected_year_n,affected_financial_year_n,first_crashYear,last_crashYear,example_regions,example_tlas,sample_issue_detail
+completeness,core_field_missing,region,warning,3474,3474,0.3803,27,27,2000,2026,,Ashburton District | Auckland | Buller District,region is missing
+completeness,core_field_missing,NumberOfLanes,warning,2268,2268,0.2483,27,27,2000,2026,Auckland Region | Bay of Plenty Region | Canterbury Region,Ashburton District | Auckland | Buller District,NumberOfLanes is missing
+completeness,core_field_missing,crashLocation2,warning,1906,1906,0.2087,16,14,2001,2026,Auckland Region | Bay of Plenty Region | Canterbury Region,Ashburton District | Auckland | Buller District,crashLocation2 is missing
+completeness,core_field_missing,speedLimit,warning,1421,1421,0.1556,12,10,2015,2026,Auckland Region | Bay of Plenty Region | Canterbury Region,Ashburton District | Auckland | Buller District,speedLimit is missing
+completeness,core_field_missing,directionRoleDescription,warning,73,73,0.008,19,20,2001,2024,Auckland Region | Bay of Plenty Region | Canterbury Region,Auckland | Christchurch City | Dunedin City,directionRoleDescription is missing
+consistency,non_injury_with_minor_only_count,crashSeverity / injuryCounts,warning,56,56,0.0061,6,5,2019,2026,Auckland Region | Bay of Plenty Region | Canterbury Region,Ashburton District | Auckland | Central Otago District,Severity suggests non-injury but minorInjuryCount is above zero; source definition review required
+completeness,primary_location_bundle_incomplete,location_bundle,error,5,5,5e-04,3,3,2018,2024,,,One or more primary location fields are missing
+completeness,required_field_missing,tlaId,error,5,5,5e-04,3,3,2018,2024,,,tlaId is missing
+completeness,required_field_missing,tlaName,error,5,5,5e-04,3,3,2018,2024,,,tlaName is missing
+completeness,required_field_missing,areaUnitID,error,4,4,4e-04,2,3,2018,2023,,,areaUnitID is missing
+completeness,required_field_missing,meshblockId,error,4,4,4e-04,2,3,2018,2023,,,meshblockId is missing
+completeness,required_field_missing,fatalCount,error,1,1,1e-04,1,1,2005,2005,Auckland Region,Auckland,fatalCount is missing
+completeness,required_field_missing,minorInjuryCount,error,1,1,1e-04,1,1,2005,2005,Auckland Region,Auckland,minorInjuryCount is missing
+completeness,required_field_missing,seriousInjuryCount,error,1,1,1e-04,1,1,2005,2005,Auckland Region,Auckland,seriousInjuryCount is missing

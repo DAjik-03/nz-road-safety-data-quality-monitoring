@@ -1,0 +1,5 @@
+metric,value
+severity_conflict_record_n,56
+records_with_fatalCount_gt_0,0
+records_with_seriousInjuryCount_gt_0,0
+records_with_minorInjuryCount_gt_0,56

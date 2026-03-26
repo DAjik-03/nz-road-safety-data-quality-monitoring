@@ -1,0 +1,27 @@
+issue_category,check_name,field_name,issue_level,OBJECTID,issue_detail,crashYear,crashFinancialYear,crashSeverity,region,tlaId,tlaName,areaUnitID,meshblockId,crashLocation1,crashLocation2,speedLimit,NumberOfLanes,directionRoleDescription
+completeness,primary_location_bundle_incomplete,location_bundle,error,598519,One or more primary location fields are missing,2018,2018/2019,Non-Injury Crash,,,,,,MARELLEN DRIVE,BAY ST,50,2,North
+completeness,primary_location_bundle_incomplete,location_bundle,error,710955,One or more primary location fields are missing,2023,2023/2024,Minor Crash,,,,,,GILLIES AVENUE,BRIGHTSIDE ROAD,50,4,North
+completeness,primary_location_bundle_incomplete,location_bundle,error,840286,One or more primary location fields are missing,2023,2023/2024,Minor Crash,,,,,,WAIKATO EXPRESSWAY,GORDONTON ROAD OFF RAMP,110,2,South
+completeness,primary_location_bundle_incomplete,location_bundle,error,872624,One or more primary location fields are missing,2023,2022/2023,Minor Crash,,,,,,NGAPAERURU ROAD,MANGAMAIRE ROAD,100,2,North
+completeness,primary_location_bundle_incomplete,location_bundle,error,767701,One or more primary location fields are missing,2024,2023/2024,Non-Injury Crash,,,,597000,2717200,WAITANGI WHARF OWENGA ROAD,NORTH ROAD,50,2,North
+completeness,required_field_missing,areaUnitID,error,598519,areaUnitID is missing,2018,2018/2019,Non-Injury Crash,,,,,,MARELLEN DRIVE,BAY ST,50,2,North
+completeness,required_field_missing,areaUnitID,error,710955,areaUnitID is missing,2023,2023/2024,Minor Crash,,,,,,GILLIES AVENUE,BRIGHTSIDE ROAD,50,4,North
+completeness,required_field_missing,areaUnitID,error,840286,areaUnitID is missing,2023,2023/2024,Minor Crash,,,,,,WAIKATO EXPRESSWAY,GORDONTON ROAD OFF RAMP,110,2,South
+completeness,required_field_missing,areaUnitID,error,872624,areaUnitID is missing,2023,2022/2023,Minor Crash,,,,,,NGAPAERURU ROAD,MANGAMAIRE ROAD,100,2,North
+completeness,required_field_missing,fatalCount,error,277541,fatalCount is missing,2005,2004/2005,Non-Injury Crash,Auckland Region,76,Auckland,516002,492400,CLONBERN ROAD,OHINERAU ST,50,2,South
+completeness,required_field_missing,meshblockId,error,598519,meshblockId is missing,2018,2018/2019,Non-Injury Crash,,,,,,MARELLEN DRIVE,BAY ST,50,2,North
+completeness,required_field_missing,meshblockId,error,710955,meshblockId is missing,2023,2023/2024,Minor Crash,,,,,,GILLIES AVENUE,BRIGHTSIDE ROAD,50,4,North
+completeness,required_field_missing,meshblockId,error,840286,meshblockId is missing,2023,2023/2024,Minor Crash,,,,,,WAIKATO EXPRESSWAY,GORDONTON ROAD OFF RAMP,110,2,South
+completeness,required_field_missing,meshblockId,error,872624,meshblockId is missing,2023,2022/2023,Minor Crash,,,,,,NGAPAERURU ROAD,MANGAMAIRE ROAD,100,2,North
+completeness,required_field_missing,minorInjuryCount,error,277541,minorInjuryCount is missing,2005,2004/2005,Non-Injury Crash,Auckland Region,76,Auckland,516002,492400,CLONBERN ROAD,OHINERAU ST,50,2,South
+completeness,required_field_missing,seriousInjuryCount,error,277541,seriousInjuryCount is missing,2005,2004/2005,Non-Injury Crash,Auckland Region,76,Auckland,516002,492400,CLONBERN ROAD,OHINERAU ST,50,2,South
+completeness,required_field_missing,tlaId,error,598519,tlaId is missing,2018,2018/2019,Non-Injury Crash,,,,,,MARELLEN DRIVE,BAY ST,50,2,North
+completeness,required_field_missing,tlaId,error,710955,tlaId is missing,2023,2023/2024,Minor Crash,,,,,,GILLIES AVENUE,BRIGHTSIDE ROAD,50,4,North
+completeness,required_field_missing,tlaId,error,840286,tlaId is missing,2023,2023/2024,Minor Crash,,,,,,WAIKATO EXPRESSWAY,GORDONTON ROAD OFF RAMP,110,2,South
+completeness,required_field_missing,tlaId,error,872624,tlaId is missing,2023,2022/2023,Minor Crash,,,,,,NGAPAERURU ROAD,MANGAMAIRE ROAD,100,2,North
+completeness,required_field_missing,tlaId,error,767701,tlaId is missing,2024,2023/2024,Non-Injury Crash,,,,597000,2717200,WAITANGI WHARF OWENGA ROAD,NORTH ROAD,50,2,North
+completeness,required_field_missing,tlaName,error,598519,tlaName is missing,2018,2018/2019,Non-Injury Crash,,,,,,MARELLEN DRIVE,BAY ST,50,2,North
+completeness,required_field_missing,tlaName,error,710955,tlaName is missing,2023,2023/2024,Minor Crash,,,,,,GILLIES AVENUE,BRIGHTSIDE ROAD,50,4,North
+completeness,required_field_missing,tlaName,error,840286,tlaName is missing,2023,2023/2024,Minor Crash,,,,,,WAIKATO EXPRESSWAY,GORDONTON ROAD OFF RAMP,110,2,South
+completeness,required_field_missing,tlaName,error,872624,tlaName is missing,2023,2022/2023,Minor Crash,,,,,,NGAPAERURU ROAD,MANGAMAIRE ROAD,100,2,North
+completeness,required_field_missing,tlaName,error,767701,tlaName is missing,2024,2023/2024,Non-Injury Crash,,,,597000,2717200,WAITANGI WHARF OWENGA ROAD,NORTH ROAD,50,2,North

@@ -1,0 +1,14 @@
+metric,value
+run_timestamp,2026-03-25 14:16:52
+dataset_row_count,913464
+dataset_column_count,72
+flagged_record_n,6976
+flagged_record_pct,0.7637
+records_with_error_n,6
+warning_only_records_n,6970
+issue_type_count,14
+core_issue_register_items_n,8
+secondary_watch_items_n,4
+watch_list_only_items_n,2
+top_error_issue_type,primary_location_bundle_incomplete [location_bundle]
+top_warning_issue_type,core_field_missing [region]

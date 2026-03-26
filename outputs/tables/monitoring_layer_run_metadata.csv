@@ -1,0 +1,2 @@
+run_timestamp,source_file,issues_file,issue_summary_file,record_flags_file,row_count,column_count,low_volume_error_pct_threshold
+2026-03-25 14:16:52,data/raw/Crash_Analysis_System_(CAS)_data.csv,outputs/tables/quality_issues_long.csv,outputs/tables/quality_issue_summary.csv,outputs/tables/record_quality_flags.csv,913464,72,0.5

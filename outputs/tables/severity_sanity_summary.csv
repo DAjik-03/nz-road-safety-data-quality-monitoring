@@ -1,0 +1,5 @@
+metric,value
+fatal_severity_without_fatalCount_n,0
+fatalCount_without_fatal_severity_n,0
+non_injury_with_fatal_or_serious_counts_n,0
+non_injury_with_minor_only_count_n,56
