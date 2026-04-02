@@ -1,152 +1,150 @@
-# NZ Road Safety Data Quality & Monitoring Review
+# NZ Road Safety Data Quality Review for Reporting and Monitoring
 
-A validation-led analytical portfolio project using publicly available NZTA Crash Analysis System (CAS) road safety data.
+A portfolio project showing how a junior analyst can review whether a public dataset is reliable enough for recurring reporting before producing stakeholder-facing outputs.
 
-This repository reviews whether a public crash data extract is reliable enough for structured monitoring before stakeholder-facing interpretation is produced.
+![Power BI summary view](assets/pbi_main_summary_screenshot.png)
 
-![Portfolio snapshot](assets/pbi_main_summary_screenshot.png)
+## Project in one sentence
 
-The workflow covers:
-- field inventory
-- quality validation
-- targeted exception review
-- monitoring-ready summary outputs
-- stakeholder-facing interpretation with targeted caveats
+I reviewed publicly available NZ road safety crash data to assess whether it was suitable for reporting and monitoring use, then turned the findings into practical outputs including summary tables, a Power BI summary view, an Excel export, and a clear written reporting position.
 
----
+## What business problem this project simulates
 
-## Project Objective
+This project simulates a practical analyst task:
 
-The objective of this project is to assess the reporting readiness of a publicly available NZ road safety dataset and document how an analyst might move from raw source data to a more disciplined reporting position.
+Before a team uses a dataset for recurring monitoring or stakeholder-facing reporting, someone needs to check whether the source data is complete enough, consistent enough, and usable enough to support safe interpretation.
 
-The project is intended to demonstrate:
-- structured review of source data before interpretation
-- data quality validation using completeness, validity, consistency, and uniqueness checks
-- exception review with materiality-based interpretation
-- monitoring-ready summary outputs for annual and financial-year use
-- stakeholder-safe documentation of limitations and caveats
+Rather than starting with trend analysis, this project focuses on validating the source data first, identifying issues that could affect reporting, and documenting what the dataset can and cannot safely support.
 
----
+## Who this project is for
 
-## Current Status
+This project is framed as if the audience were:
 
-**Current phase:** Phase 3 complete — quality validation complete, monitoring layer implemented, and stakeholder-facing presentation outputs packaged
+- an analyst preparing recurring monitoring outputs
+- a reporting lead reviewing whether a dataset is safe to use
+- a stakeholder who needs a clear summary of reporting risks, caveats, and usable outputs
 
-The project has moved beyond setup and initial validation.  
-The repository now reflects a documentation-heavy, reporting-oriented analytical workflow with front-facing presentation outputs added for portfolio use.
+## Tools used
 
-Completed analytical and presentation layers:
+- **R** for field inventory, quality checks, exception review, and summary-table generation
+- **Excel** for stakeholder-friendly supporting export
+- **Power BI** for a summary reporting view
+- **GitHub** for project structure, documentation, and portfolio presentation
 
-1. **Field Inventory Layer**
-   - `scripts/01_field_inventory.R`
-   - reviews raw extract structure, missingness, and date coverage
+## Outputs produced
 
-2. **Quality Validation Layer**
-   - `scripts/02_quality_checks.R`
-   - applies completeness, validity, consistency, and uniqueness checks
+- field inventory and missingness review
+- data quality validation checks
+- exception review for flagged issues
+- monitoring-ready summary tables
+- Power BI summary view
+- stakeholder-friendly Excel export
+- concise written reporting position and caveats
 
-3. **Severity Exception Review**
-   - `scripts/02a_review_severity_conflicts.R`
-   - refines interpretation of severity-related conflicts
+## Key result
 
-4. **Exception Review and Monitoring Layer**
-   - `scripts/03_exception_review_and_monitoring_layer.R`
-   - converts validation outputs into monitoring-ready and stakeholder-facing summary tables
+The reviewed extract was assessed as **fit for Version 1 monitoring use**, with targeted caveats rather than broad structural reliability concerns.
 
-5. **Portfolio and Presentation Outputs**
-   - one-page portfolio snapshot
-   - workflow diagram
-   - Power BI summary view
-   - static figure set
-   - stakeholder-friendly Excel supporting export
-   - concise monitoring interpretation note
+In practical terms, the current extract appears suitable for:
 
----
-
-## Current Version 1 Reporting Position
-
-The current documented position is:
-
-- no major high-volume structural failures were identified
-- most flagged items are low-volume exceptions or warning-level completeness gaps
-- the main residual caveat is a very small number of incomplete geographic reference records
-- one isolated historical injury-count exception remains on record as a monitored exception
-- overall position: **fit for version 1 monitoring use, with targeted caveats rather than broad reliability concerns**
-
-In practical terms, this means the current extract appears suitable for:
 - annual monitoring
 - financial-year monitoring
 - severity and outcome review
 - stakeholder-facing interpretation with clear caveats
 
-For a concise one-page statement of the final version 1 conclusion, see:
-- `docs/final_reporting_position.md`
+## Main caveat
 
-For a stakeholder-facing monitoring interpretation note, see:
-- `docs/monitoring_summary.md`
+The main residual caveat is a small number of incomplete geographic reference records, including fields such as:
 
----
-
-## Main Caveat
-
-The main residual caveat is a small number of records with incomplete geographic reference fields such as:
 - `tlaId`
 - `tlaName`
 - `areaUnitID`
 - `meshblockId`
 
-This is not expected to materially affect:
+This is unlikely to materially affect:
+
 - national annual summaries
 - national financial-year summaries
 - broad monitoring interpretation
 
-However, additional caution is appropriate where reporting becomes more geographically detailed, including:
+However, more caution is appropriate where reporting becomes more geographically detailed, including:
+
 - TLA-level reporting
 - area-unit or meshblock-linked analysis
 - map-based outputs
 - tightly scoped local-area summaries
 
 A separate isolated historical exception also remains on record:
-- one 2005 Auckland record with missing `fatalCount`, `seriousInjuryCount`, and `minorInjuryCount`
+one 2005 Auckland record with missing `fatalCount`, `seriousInjuryCount`, and `minorInjuryCount`.
 
-Because it is isolated and low-volume, it is retained as a monitored exception rather than treated as a broader stakeholder concern.
+Because it is isolated and low-volume, it is retained as a monitored exception rather than treated as a broader reporting concern.
 
----
+## Data reviewed
 
-## Current Extract Profile
-
-Primary working file:
+**Primary working file**
 - `data/raw/Crash_Analysis_System_(CAS)_data.csv`
 
-Reviewed extract profile:
+**Reviewed extract profile**
 - Rows: 913,464
 - Columns: 72
 
----
+## What a reviewer should look at first
 
-## Portfolio Snapshot and Visual Outputs
+If you are reviewing this repository quickly, start with:
 
-To make the completed review easier to assess at a glance, the repository includes a small set of front-facing presentation outputs alongside the core technical documentation.
+- `assets/pbi_main_summary_screenshot.png`
+- `assets/portfolio_snapshot_onepager.png`
+- `docs/final_reporting_position.md`
+- `docs/monitoring_summary.md`
+- `outputs/excel/nz-road-safety-monitoring-supporting-export.xlsx`
 
-### Main visual assets
-- `assets/portfolio_snapshot_onepager.png` — one-page visual summary of the project position, key findings, and reporting caveat
-- `assets/project_workflow_diagram.png` — simplified workflow view showing how the project moves from field review through validation, exception review, monitoring, and final interpretation
-- `assets/pbi_main_summary_screenshot.png` — Power BI summary view used as the main dashboard-style presentation artifact
+## Workflow overview
 
-### Static figures
-- `outputs/figures/fig_01_v1_validation_to_monitoring_workflow.png`
-- `outputs/figures/fig_02_validation_outcome_summary.png`
-- `outputs/figures/fig_03_quality_monitoring_annual_fy_issue_coverage.png`
-- `outputs/figures/fig_04_geographic_completeness_caveat_matrix.png`
+The project follows a practical reporting-readiness workflow:
 
-### Supporting export
-- `outputs/excel/nz-road-safety-monitoring-supporting-export.xlsx` — stakeholder-friendly workbook summarising reporting position, validation outcomes, exceptions, and monitoring-facing caveats
+1. **Field inventory**
+   - review raw extract structure, missingness, and date coverage
 
-### Supporting interpretation note
-- `docs/monitoring_summary.md` — concise stakeholder-facing interpretation of what the validation and monitoring outputs mean for Version 1 use
+2. **Quality validation**
+   - apply completeness, validity, consistency, and uniqueness checks
 
-These outputs do not introduce a new analytical framework.  
-They package the completed validation-led review into recruiter-facing and stakeholder-facing outputs that make the project easier to assess at a glance.
+3. **Targeted exception review**
+   - review flagged issues that may affect reporting interpretation
+
+4. **Monitoring output preparation**
+   - convert validation outputs into monitoring-ready summary tables
+
+5. **Reporting position and caveat documentation**
+   - summarise what the dataset can support and where caution is still needed
+
+## Key project files
+
+### Scripts
+- `scripts/01_field_inventory.R`
+- `scripts/02_quality_checks.R`
+- `scripts/02a_review_severity_conflicts.R`
+- `scripts/03_exception_review_and_monitoring_layer.R`
+- `scripts/04_static_figures.R`
+
+### Presentation assets
+- `assets/portfolio_snapshot_onepager.png`
+- `assets/project_workflow_diagram.png`
+- `assets/pbi_main_summary_screenshot.png`
+
+### Outputs
+- `outputs/tables/`
+- `outputs/figures/`
+- `outputs/excel/nz-road-safety-monitoring-supporting-export.xlsx`
+
+### Supporting documentation
+- `docs/final_reporting_position.md`
+- `docs/monitoring_summary.md`
+- `docs/stakeholder_brief.md`
+- `docs/stakeholder_issue_register_final.md`
+- `docs/methodology.md`
+- `docs/assumptions_and_limitations.md`
+- `docs/data_dictionary.md`
+- `docs/data_sources.md`
 
 ---
 
@@ -196,94 +194,68 @@ nz-road-safety-data-quality-monitoring/
     ├── assumptions_and_limitations.md
     └── data_sources.md
 
-Key Outputs
-
-The repository includes both technical monitoring outputs and presentation-facing portfolio outputs.
-
+Deliverables in this repository
 Technical outputs
-- field inventory and reviewed field coverage
-- issue summaries and exception registers
-- annual and financial-year monitoring summaries
-- priority-field completeness tracking
-- stakeholder headline summary tables
+field inventory and reviewed field coverage
+issue summaries and exception registers
+annual and financial-year monitoring summaries
+priority-field completeness tracking
+stakeholder headline summary tables
+Presentation-facing outputs
+one-page portfolio snapshot
+workflow diagram
+Power BI summary view
+static figure set
+stakeholder-friendly Excel export
+concise monitoring summary note
+Reporting approach
 
-Presentation outputs
-- one-page portfolio snapshot
-- workflow diagram
-- Power BI summary view
-- static figure set
-- stakeholder-friendly Excel export
-- monitoring summary note
-
-For field-level structure and missingness, outputs/tables/field_inventory.csv is the source-of-truth inventory output for the reviewed Version 1 extract.
-
-Where some generated outputs are not visible in Git, the scripts and supporting documentation should be treated as the source of truth.
-
-Analytical Framing
-
-Version 1 is primarily framed around:
-
-- annual monitoring
-- financial-year monitoring
-- severity and outcome review
-- geographic data quality review
-- issue logging and monitoring-oriented summaries
-
-It is not primarily framed as a monthly or daily operational reporting workflow.
-
-This reflects the structure of the reviewed extract, which is more naturally aligned to:
-
-- crashYear
-- crashFinancialYear
-
-than to a strongly event-date-driven operational reporting design.
-
-Interpretation Approach
-
-A core project principle is:
+A core principle in this project is:
 
 validate before interpreting
 
-This means stakeholder-facing interpretation is intentionally based on:
+The reporting position is based on:
 
-- field inventory
-- formal validation logic
-- targeted severity exception review
-- monitoring-oriented summary outputs
-- documented caveats and limitations
+field inventory
+formal validation logic
+targeted exception review
+monitoring-oriented summary outputs
+documented caveats and limitations
 
-The project also applies a materiality-based interpretation rather than treating every flagged row as an equally important stakeholder issue.
+The project also uses proportionate interpretation rather than treating every flagged row as an equally important reporting issue.
 
 In practice, this means:
 
-- low-volume exceptions are interpreted proportionately
-- national monitoring use is distinguished from detailed geographic reporting risk
-- isolated anomalies are not automatically elevated into headline reporting concerns
+low-volume exceptions are interpreted proportionately
+national monitoring use is separated from detailed geographic reporting risk
+isolated anomalies are not automatically elevated into headline concerns
+Scope note
 
-Supporting Documentation
+This Version 1 project is primarily framed around:
 
-Further project interpretation and documentation are available in:
+annual monitoring
+financial-year monitoring
+severity and outcome review
+geographic data quality review
+issue logging and monitoring-oriented summaries
 
-- docs/project_status.md
-- docs/decision_log.md
-- docs/executive_summary.md
-- docs/final_reporting_position.md
-- docs/stakeholder_brief.md
-- docs/monitoring_summary.md
-- docs/stakeholder_issue_register_final.md
-- docs/project_charter.md
-- docs/methodology.md
-- docs/data_dictionary.md
-- docs/assumptions_and_limitations.md
-- docs/data_sources.md
+It is not primarily framed as a daily or monthly operational reporting workflow.
 
-Important Positioning Note
+This reflects the structure of the reviewed extract, which is more naturally aligned to:
+
+crashYear
+crashFinancialYear
+
+than to a strongly event-date-driven operational reporting design.
+
+Important positioning note
 
 This repository is an independent portfolio project using publicly available data.
 
 It does not represent:
 
-- official NZTA analysis
-- official government reporting
-- operational sign-off on source-system quality
-- a production enterprise reporting framework
+official NZTA analysis
+official government reporting
+operational sign-off on source-system quality
+a production enterprise reporting framework
+formal employment work completed on behalf of NZTA or another organisation
