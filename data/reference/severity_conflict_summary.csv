@@ -1,0 +1,3 @@
+crashSeverity,fatalCount,seriousInjuryCount,minorInjuryCount,highest_injury_signal,review_priority,records_n
+Non-Injury Crash,0,0,1,minorInjuryCount_present,medium,55
+Non-Injury Crash,0,0,13,minorInjuryCount_present,medium,1

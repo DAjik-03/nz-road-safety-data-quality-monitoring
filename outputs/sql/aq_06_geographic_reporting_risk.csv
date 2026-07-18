@@ -1,0 +1,5 @@
+risk_order,reporting_grain,records_checked,affected_records,affected_record_pct,interpretation
+1,National,913464,0,0.0,No geographic key required for national totals
+2,Region,913464,3474,0.3803,Caveat or exclude records with missing region
+3,TLA,913464,5,0.0005,Caveat detailed TLA reporting and map outputs
+4,Area unit / meshblock,913464,4,0.0004,Use explicit completeness caveats for fine-grained geography

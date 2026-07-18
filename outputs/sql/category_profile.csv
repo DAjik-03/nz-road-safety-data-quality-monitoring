@@ -1,0 +1,5 @@
+column_name,category_value,records_n,record_pct
+crashSeverity,Non-Injury Crash,638663,69.9166
+crashSeverity,Minor Crash,213944,23.4212
+crashSeverity,Serious Crash,52526,5.7502
+crashSeverity,Fatal Crash,8331,0.912

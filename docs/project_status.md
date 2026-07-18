@@ -1,13 +1,11 @@
 # Project Status
 
 ## Current Phase
-**Phase 3 complete — quality validation complete, monitoring layer implemented, and stakeholder-facing presentation outputs packaged**
+**Phase 4 complete - R and SQL validation layers reconciled, monitoring outputs generated, and portfolio evidence packaged**
 
 This project has progressed beyond initial setup, field inventory, and first-pass validation.
 
-The core analytical workflow for Version 1 is already in place.  
-At this stage, the repository is no longer being treated as a foundational build.  
-The remaining work is limited to final wording alignment, repository consistency, and portfolio presentation polish.
+The core analytical workflow for Version 1 is in place in both R and DuckDB SQL. The SQL implementation reproduces the established baseline, exposes record-level exceptions and reporting views, and passes all release tests. Remaining work is limited to optional Power BI file editing and external portfolio publication.
 
 ---
 
@@ -21,6 +19,7 @@ The portfolio aim is to demonstrate how an analyst can move from raw public data
 - data quality validation
 - targeted exception review
 - monitoring-oriented summary outputs
+- independent R-SQL reconciliation
 - stakeholder-safe interpretation and documented caveats
 
 ---
@@ -227,13 +226,7 @@ The project is now in a finishing and presentation phase rather than a foundatio
 ---
 
 ## Current Work Focus
-The most natural work at this stage is repository polish rather than additional core analysis.
-
-Current high-priority work areas are:
-- final README and documentation consistency checks
-- file placement and naming consistency across assets and outputs
-- light wording cleanup where needed
-- portfolio-ready maintenance rather than analytical redesign
+The SQL portfolio extension is implemented and validated. Optional follow-up work is limited to updating the original PBIX file when it is available, publishing the repository changes, and aligning external CV or website copy with the verified final counts.
 
 ---
 

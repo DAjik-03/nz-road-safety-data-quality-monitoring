@@ -1,0 +1,13 @@
+test_id,test_name,expected,actual,status,notes
+T-001,Source row count is preserved,913464,913464,PASS,Exact match required
+T-002,Annual totals reconcile to R,0 mismatched years,0,PASS,All year-level counts must match
+T-003,Financial-year totals reconcile to R,0 mismatched financial years,0,PASS,All financial-year counts must match
+T-004,Core-field missingness reconciles to R,0 mismatched fields,0,PASS,Missing counts must match exactly
+T-005,Severity totals reconcile to R,0 mismatched severity groups,0,PASS,Crash and casualty totals must match exactly
+T-006,Crash ID remains unique,0 duplicate ID rows,0,PASS,Duplicate IDs are a release blocker
+T-007,No blocking quality rule fails,0 failed checks,0,PASS,Documented REVIEW and MONITOR results are allowed
+T-008,At least eight quality rules exist,>= 8 rules,12,PASS,Portfolio scope requires meaningful rule coverage
+T-009,At least four reporting views exist,>= 4 views,8,PASS,Views must expose stable reporting grains
+T-010,Known 2005 Auckland injury-count exception is detected,1 record,1,PASS,Confirms record-level traceability to the documented exception
+T-011,Source column count matches the reviewed extract,72 columns,72,PASS,Schema drift requires review
+T-012,Annual monitoring view is populated,> 0 rows,27,PASS,Empty reporting outputs are a release blocker

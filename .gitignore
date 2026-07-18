@@ -17,9 +17,18 @@ data/processed/*
 # Outputs
 outputs/*
 !outputs/.gitkeep
+!outputs/sql/
+outputs/sql/*
+!outputs/sql/.gitkeep
+!outputs/sql/*.csv
 
 # Logs
 *.log
 
 # Temp
 tmp/
+
+# Project-local tools and generated DuckDB files
+.tools/
+*.duckdb
+*.duckdb.wal

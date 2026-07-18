@@ -1,0 +1,5 @@
+crash_severity,r_records_n,sql_records_n,record_difference,fatality_difference,serious_injury_difference,minor_injury_difference,status
+Fatal Crash,8331,8331,0,0,0,0,PASS
+Minor Crash,213944,213944,0,0,0,0,PASS
+Non-Injury Crash,638663,638663,0,0,0,0,PASS
+Serious Crash,52526,52526,0,0,0,0,PASS

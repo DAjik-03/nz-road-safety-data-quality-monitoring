@@ -69,19 +69,19 @@ Accordingly, the methodology is designed to assess reporting readiness within th
 ---
 
 ## Workflow Overview
-The version 1 workflow is structured as five linked workflow layers:
+The version 1 workflow is structured as six linked workflow layers:
 
 1. **Field inventory**
 2. **Quality validation**
 3. **Targeted exception review**
 4. **Monitoring layer and stakeholder-facing interpretation**
 5. **Presentation-facing static outputs**
+6. **Independent SQL reproduction and reconciliation**
 
 This sequence is intentional.  
 It prevents reporting conclusions from being produced before the extract has been structurally reviewed and quality-checked.
 
-The first four layers establish reporting-readiness judgement and interpretation boundaries.  
-The fifth layer packages those completed conclusions into static, presentation-facing outputs for portfolio, README, and stakeholder review use.
+The first four layers establish reporting-readiness judgement and interpretation boundaries. The fifth layer packages those conclusions for review. The sixth layer independently reproduces the key controls in DuckDB SQL and blocks release when reconciliation fails.
 
 ---
 
@@ -332,6 +332,22 @@ Reproducibility is supported through:
 - documented caveats and assumptions
 
 This is intended to demonstrate disciplined analytical practice rather than a fully automated enterprise production framework.
+
+---
+
+## Layer 6 - Independent SQL Reproduction and Reconciliation
+
+### Files
+- `sql/run_all.sql`
+- `sql/00_setup.sql` through `sql/06_validation_tests.sql`
+- `docs/sql_data_model.md`
+- `docs/sql_reconciliation.md`
+
+### Purpose
+The SQL layer demonstrates that the established findings are reproducible outside the original R workflow. It preserves the source grain, applies 12 traceable quality rules, exposes stable reporting views and compares key totals directly with versioned R baseline controls.
+
+### Release standard
+Publication is blocked when source row counts, annual or financial-year totals, core missingness, severity/casualty totals, schema controls or known-exception traceability fail. Low-volume documented exceptions remain REVIEW or MONITOR results rather than being silently corrected.
 
 ---
 
