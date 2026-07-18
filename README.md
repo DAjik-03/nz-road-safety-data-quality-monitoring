@@ -2,7 +2,7 @@
 
 A portfolio project showing how an analyst can validate a large public dataset before using it for recurring reporting, then turn the findings into reproducible SQL, R, Power BI, Excel and stakeholder-facing outputs.
 
-![Power BI summary view](assets/pbi_main_summary_screenshot.png)
+![Power BI SQL monitoring view](assets/pbi_sql_monitoring_screenshot.png)
 
 ## Project in one sentence
 
@@ -59,7 +59,7 @@ One isolated 2005 Auckland record is also missing `fatalCount`, `seriousInjuryCo
 ### 30 seconds
 
 - this README
-- `assets/pbi_main_summary_screenshot.png`
+- `assets/pbi_sql_monitoring_screenshot.png`
 - [final reporting position](docs/final_reporting_position.md)
 
 ### 3 minutes
@@ -122,7 +122,9 @@ The detailed rule catalogue and current counts are in [sql/README.md](sql/README
 
 ## SQL-connected reporting visuals
 
-These figures are generated directly from the compact CSV exports produced by the DuckDB workflow. They provide a visual review path without requiring the original Power BI file.
+The original Power BI report was connected to the first two compact CSV exports produced by the DuckDB workflow. The portfolio page above shows complete-period annual monitoring, the 12 SQL quality-rule outcomes and three data-backed KPI cards.
+
+The two figures below are also generated directly from the same exports. Together with the Power BI screenshot, they provide a reproducible visual review path without requiring the PBIX binary.
 
 ![SQL quality checks with recorded exceptions](assets/sql_quality_check_exceptions.png)
 
@@ -149,6 +151,7 @@ The first figure uses a log scale so low-volume review exceptions remain visible
 - `outputs/sql/validation_results.csv`
 - `assets/sql_quality_check_exceptions.png`
 - `assets/sql_annual_crash_monitoring.png`
+- `assets/pbi_sql_monitoring_screenshot.png`
 
 ### Existing presentation evidence
 
