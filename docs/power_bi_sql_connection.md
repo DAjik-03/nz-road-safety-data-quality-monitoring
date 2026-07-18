@@ -12,6 +12,17 @@ The SQL workflow exports three Power BI-ready files:
 
 Connect at least the first two files to the existing summary page. The third file supports the established geographic caveat.
 
+## Visual evidence generated from the handoff
+
+The repository includes two visuals generated directly from the first two handoff files:
+
+| SQL output | Generated visual | Review purpose |
+|---|---|---|
+| `power_bi_quality_check_summary.csv` | `assets/sql_quality_check_exceptions.png` | Compare the five checks with non-zero exceptions and retain PASS/REVIEW/MONITOR context |
+| `power_bi_annual_crash_monitoring.csv` | `assets/sql_annual_crash_monitoring.png` | Review the annual crash trend across complete periods while excluding the partial 2026 snapshot |
+
+Run `Rscript scripts/05_sql_portfolio_figures.R` from the repository root to regenerate both images. This provides reproducible visual evidence from the same compact files prepared for Power BI.
+
 ## Validation checks in Power BI
 
 - Annual crash totals must match `vw_annual_crash_monitoring` and the R annual baseline.

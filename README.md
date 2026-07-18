@@ -120,6 +120,22 @@ On Windows, `scripts/run_sql.ps1` provides the same workflow. On macOS and Linux
 
 The detailed rule catalogue and current counts are in [sql/README.md](sql/README.md) and `outputs/sql/quality_check_results.csv`.
 
+## SQL-connected reporting visuals
+
+These figures are generated directly from the compact CSV exports produced by the DuckDB workflow. They provide a visual review path without requiring the original Power BI file.
+
+![SQL quality checks with recorded exceptions](assets/sql_quality_check_exceptions.png)
+
+![Annual crash records in complete calendar years](assets/sql_annual_crash_monitoring.png)
+
+Regenerate both figures from the repository root after running the SQL workflow:
+
+```powershell
+Rscript scripts/05_sql_portfolio_figures.R
+```
+
+The first figure uses a log scale so low-volume review exceptions remain visible beside the monitored region-missingness count. The annual trend excludes the incomplete 2026 snapshot from year-over-year comparison.
+
 ## Outputs
 
 ### SQL evidence
@@ -131,6 +147,8 @@ The detailed rule catalogue and current counts are in [sql/README.md](sql/README
 - `outputs/sql/power_bi_annual_crash_monitoring.csv`
 - `outputs/sql/power_bi_geographic_completeness.csv`
 - `outputs/sql/validation_results.csv`
+- `assets/sql_quality_check_exceptions.png`
+- `assets/sql_annual_crash_monitoring.png`
 
 ### Existing presentation evidence
 
