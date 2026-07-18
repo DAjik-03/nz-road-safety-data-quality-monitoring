@@ -5,7 +5,7 @@
 
 This project has progressed beyond initial setup, field inventory, and first-pass validation.
 
-The core analytical workflow for Version 1 is in place in both R and DuckDB SQL. The SQL implementation reproduces the established baseline, exposes record-level exceptions and reporting views, and passes all release tests. Remaining work is limited to optional Power BI file editing and external portfolio publication.
+The core analytical workflow for Version 1 is in place in both R and DuckDB SQL. The SQL implementation reproduces the established baseline, exposes record-level exceptions and reporting views, and passes all release tests. Two reproducible visuals are generated directly from the Power BI-ready SQL exports, and the SQL evidence is published through the repository, CV and portfolio website. Remaining work is limited to optional editing of the original Power BI binary in a live Power BI Desktop session.
 
 ---
 
