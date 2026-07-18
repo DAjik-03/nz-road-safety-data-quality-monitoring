@@ -1,0 +1,6 @@
+check_id,check_name,check_category,issue_severity,check_status,exception_rows,affected_records,first_crash_year,last_crash_year,affected_years
+DQ-10,Region reference is populated,completeness,medium,MONITOR,3474,3474,2000,2026,27
+DQ-11,Non-injury crashes have no minor injury count,consistency,medium,REVIEW,56,56,2019,2026,6
+DQ-07,Primary TLA reference is complete,completeness,medium,REVIEW,5,5,2018,2024,3
+DQ-08,Fine geographic reference is complete,completeness,medium,REVIEW,4,4,2018,2023,2
+DQ-12,Required injury counts are populated,completeness,high,REVIEW,1,1,2005,2005,1

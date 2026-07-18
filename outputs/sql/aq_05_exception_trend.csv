@@ -1,0 +1,40 @@
+crash_year,check_id,check_name,exception_rows,affected_records
+2013,DQ-10,Region reference is populated,95,95
+2020,DQ-10,Region reference is populated,104,104
+2023,DQ-07,Primary TLA reference is complete,3,3
+2008,DQ-10,Region reference is populated,143,143
+2019,DQ-11,Non-injury crashes have no minor injury count,1,1
+2001,DQ-10,Region reference is populated,146,146
+2011,DQ-10,Region reference is populated,137,137
+2015,DQ-10,Region reference is populated,101,101
+2016,DQ-10,Region reference is populated,147,147
+2018,DQ-10,Region reference is populated,170,170
+2019,DQ-10,Region reference is populated,142,142
+2018,DQ-07,Primary TLA reference is complete,1,1
+2022,DQ-10,Region reference is populated,130,130
+2023,DQ-10,Region reference is populated,141,141
+2023,DQ-08,Fine geographic reference is complete,3,3
+2023,DQ-11,Non-injury crashes have no minor injury count,9,9
+2009,DQ-10,Region reference is populated,150,150
+2002,DQ-10,Region reference is populated,138,138
+2005,DQ-10,Region reference is populated,154,154
+2010,DQ-10,Region reference is populated,189,189
+2000,DQ-10,Region reference is populated,131,131
+2021,DQ-10,Region reference is populated,134,134
+2024,DQ-10,Region reference is populated,105,105
+2025,DQ-11,Non-injury crashes have no minor injury count,26,26
+2026,DQ-11,Non-injury crashes have no minor injury count,6,6
+2026,DQ-10,Region reference is populated,14,14
+2005,DQ-12,Required injury counts are populated,1,1
+2012,DQ-10,Region reference is populated,120,120
+2014,DQ-10,Region reference is populated,101,101
+2017,DQ-10,Region reference is populated,137,137
+2018,DQ-08,Fine geographic reference is complete,1,1
+2025,DQ-10,Region reference is populated,129,129
+2024,DQ-11,Non-injury crashes have no minor injury count,11,11
+2024,DQ-07,Primary TLA reference is complete,1,1
+2022,DQ-11,Non-injury crashes have no minor injury count,3,3
+2006,DQ-10,Region reference is populated,108,108
+2003,DQ-10,Region reference is populated,127,127
+2004,DQ-10,Region reference is populated,142,142
+2007,DQ-10,Region reference is populated,139,139

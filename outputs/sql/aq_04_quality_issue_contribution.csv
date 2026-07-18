@@ -1,0 +1,6 @@
+check_id,check_name,status,failed_records,share_of_all_rule_failures_pct,contribution_rank
+DQ-10,Region reference is populated,MONITOR,3474,98.1356,1
+DQ-11,Non-injury crashes have no minor injury count,REVIEW,56,1.5819,2
+DQ-07,Primary TLA reference is complete,REVIEW,5,0.1412,3
+DQ-08,Fine geographic reference is complete,REVIEW,4,0.113,4
+DQ-12,Required injury counts are populated,REVIEW,1,0.0282,5

@@ -16,9 +16,14 @@ Source context:
 - sourced from the NZTA Crash Analysis System (CAS) public data extract
 - used as the primary input for field inventory, validation, exception review, and monitoring-oriented summary outputs
 
+Official access points:
+- https://www.nzta.govt.nz/partners/data-and-tools/crash-analysis-system/
+- https://spatial.nzta.govt.nz/portal/rest/services/Hosted/CAS_Data_Public/FeatureServer/0
+
 Current extract profile:
 - Rows: 913,464
 - Columns: 72
+- SHA-256: `DA1F3E993C4482D679E2F798ED9D4F0AD855E24C04E2C6AC90894043A0F227F0`
 
 ---
 

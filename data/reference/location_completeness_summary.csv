@@ -1,0 +1,11 @@
+column_name,missing_count,total_rows,missing_pct
+region,3474,913464,0.38
+crashLocation2,1906,913464,0.21
+X,0,913464,0
+Y,0,913464,0
+areaUnitID,4,913464,0
+crashLocation1,0,913464,0
+crashSHDescription,3,913464,0
+meshblockId,4,913464,0
+tlaId,5,913464,0
+tlaName,5,913464,0

@@ -1,0 +1,15 @@
+issue_category,check_name,field_name,issue_level,issue_n,issue_pct_of_rows
+completeness,core_field_missing,region,warning,3474,0.3803
+completeness,core_field_missing,NumberOfLanes,warning,2268,0.2483
+completeness,core_field_missing,crashLocation2,warning,1906,0.2087
+completeness,core_field_missing,speedLimit,warning,1421,0.1556
+completeness,core_field_missing,directionRoleDescription,warning,73,0.008
+consistency,non_injury_with_minor_only_count,crashSeverity / injuryCounts,warning,56,0.0061
+completeness,primary_location_bundle_incomplete,location_bundle,error,5,5e-04
+completeness,required_field_missing,tlaId,error,5,5e-04
+completeness,required_field_missing,tlaName,error,5,5e-04
+completeness,required_field_missing,areaUnitID,error,4,4e-04
+completeness,required_field_missing,meshblockId,error,4,4e-04
+completeness,required_field_missing,fatalCount,error,1,1e-04
+completeness,required_field_missing,minorInjuryCount,error,1,1e-04
+completeness,required_field_missing,seriousInjuryCount,error,1,1e-04

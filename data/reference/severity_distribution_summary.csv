@@ -1,0 +1,5 @@
+crashSeverity,records_n,fatalCount_sum,seriousInjuryCount_sum,minorInjuryCount_sum
+Non-Injury Crash,638663,0,0,68
+Minor Crash,213944,0,0,266537
+Serious Crash,52526,0,59865,21238
+Fatal Crash,8331,9401,3673,4030
