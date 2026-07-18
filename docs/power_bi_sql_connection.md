@@ -12,6 +12,18 @@ The SQL workflow exports three Power BI-ready files:
 
 Connect at least the first two files to the existing summary page. The third file supports the established geographic caveat.
 
+## Completed Power BI connection
+
+The local Power BI report now includes a dedicated `SQL Monitoring` page connected to the first two handoff files:
+
+- `SQL Quality Checks` uses `power_bi_quality_check_summary.csv`.
+- `SQL Annual Monitoring` uses `power_bi_annual_crash_monitoring.csv`.
+- The annual line chart filters to `period_status = complete_period`, so the partial 2026 snapshot is excluded from the trend comparison.
+- The rule-outcome chart shows 7 PASS, 4 REVIEW and 1 MONITOR rule.
+- The KPI cards show 913,464 records reviewed, 12 quality rules tested and 5 checks requiring attention.
+
+The validated report page is published as `assets/pbi_sql_monitoring_screenshot.png`.
+
 ## Visual evidence generated from the handoff
 
 The repository includes two visuals generated directly from the first two handoff files:
@@ -34,4 +46,4 @@ Run `Rscript scripts/05_sql_portfolio_figures.R` from the repository root to reg
 
 ## Current artifact boundary
 
-The repository contains a screenshot of the existing Power BI summary but no `.pbix` source file. The SQL exports and mapping above complete the reproducible data handoff; updating the visual file itself requires the original PBIX in Power BI Desktop.
+The local PBIX was updated and validated in Power BI Desktop. The binary is intentionally not committed; the repository publishes the validated screenshot, source CSVs, field mapping and regeneration path without exposing machine-specific connections.

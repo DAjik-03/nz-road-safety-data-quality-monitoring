@@ -5,7 +5,7 @@
 
 This project has progressed beyond initial setup, field inventory, and first-pass validation.
 
-The core analytical workflow for Version 1 is in place in both R and DuckDB SQL. The SQL implementation reproduces the established baseline, exposes record-level exceptions and reporting views, and passes all release tests. Two reproducible visuals are generated directly from the Power BI-ready SQL exports, and the SQL evidence is published through the repository, CV and portfolio website. Remaining work is limited to optional editing of the original Power BI binary in a live Power BI Desktop session.
+The core analytical workflow for Version 1 is in place in both R and DuckDB SQL. The SQL implementation reproduces the established baseline, exposes record-level exceptions and reporting views, and passes all release tests. Two reproducible visuals are generated directly from the Power BI-ready SQL exports, and the SQL evidence is published through the repository, CV and portfolio website. The local PBIX has also been connected to the SQL handoff files, validated in Power BI Desktop and captured as portfolio evidence.
 
 ---
 
@@ -226,7 +226,7 @@ The project is now in a finishing and presentation phase rather than a foundatio
 ---
 
 ## Current Work Focus
-The SQL portfolio extension is implemented and validated. Optional follow-up work is limited to updating the original PBIX file when it is available, publishing the repository changes, and aligning external CV or website copy with the verified final counts.
+The SQL portfolio extension and Power BI connection are implemented, validated and packaged. No Version 1 implementation work remains; future work is limited to rerunning the established refresh path when the source extract changes.
 
 ---
 
